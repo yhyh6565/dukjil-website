@@ -1,0 +1,247 @@
+{
+  "articles": [
+    {
+      "id": "fan-waiting",
+      "title": "팬은 기다림도 소비한다",
+      "category": "SM Entertainment",
+      "categorySlug": "sm-entertainment",
+      "keyword": "몰입설계",
+      "date": "2025-06-04",
+      "dateFormatted": "2025년 6월 4일",
+      "excerpt": "SM의 티저 전략을 통해 본 고객 기대감 관리와 마케팅 타이밍의 중요성",
+      "readTime": "5분 읽기",
+      "featured": true,
+      "published": true,
+      "slug": "fan-waiting",
+      "path": "articles/fan-waiting.html",
+      "tags": ["SM Entertainment", "마케팅", "팬덤", "경험 디자인"],
+      "author": "덕질러",
+      "metaDescription": "SM의 티저 전략을 통해 본 고객 기대감 관리와 마케팅 타이밍의 중요성",
+      "socialImage": "assets/images/covers/fan-waiting.jpg"
+    },
+    {
+      "id": "netflix-vs-marvel",
+      "title": "한 방을 노리는 넷플릭스, 꾸준히 회수하는 마블",
+      "category": "MCU",
+      "categorySlug": "mcu",
+      "keyword": "수익구조",
+      "date": "2025-05-28",
+      "dateFormatted": "2025년 5월 28일",
+      "excerpt": "플랫폼별 콘텐츠 전략의 차이점과 수익 모델 분석",
+      "readTime": "7분 읽기",
+      "featured": true,
+      "published": true,
+      "slug": "netflix-vs-marvel",
+      "path": "articles/netflix-vs-marvel.html",
+      "tags": ["MCU", "넷플릭스", "비즈니스 모델", "콘텐츠 전략"],
+      "author": "덕질러",
+      "metaDescription": "플랫폼별 콘텐츠 전략의 차이점과 수익 모델 분석",
+      "socialImage": "assets/images/covers/netflix-vs-marvel.jpg"
+    },
+    {
+      "id": "exo-universe",
+      "title": "EXO를 해석하라, 세계관이 만든 밀리언셀러",
+      "category": "SM Entertainment",
+      "categorySlug": "sm-entertainment",
+      "keyword": "세계관",
+      "date": "2025-05-20",
+      "dateFormatted": "2025년 5월 20일",
+      "excerpt": "브랜드 세계관 구축이 고객 충성도와 매출에 미치는 영향",
+      "readTime": "6분 읽기",
+      "featured": true,
+      "published": true,
+      "slug": "exo-universe",
+      "path": "articles/exo-universe.html",
+      "tags": ["SM Entertainment", "브랜딩", "스토리텔링", "세계관"],
+      "author": "덕질러",
+      "metaDescription": "브랜드 세계관 구축이 고객 충성도와 매출에 미치는 영향",
+      "socialImage": "assets/images/covers/exo-universe.jpg"
+    }
+  ],
+  "categories": [
+    {
+      "id": "sm-entertainment",
+      "name": "SM Entertainment",
+      "slug": "sm-entertainment",
+      "description": "K-POP 산업을 이끄는 SM Entertainment의 혁신적인 비즈니스 전략",
+      "color": "#ff6b6b",
+      "articleCount": 15,
+      "path": "categories/sm-entertainment.html",
+      "keywords": [
+        {
+          "name": "몰입설계",
+          "description": "팬 경험 디자인과 몰입도 향상 전략",
+          "count": 3
+        },
+        {
+          "name": "세계관",
+          "description": "브랜드 유니버스 구축과 스토리텔링",
+          "count": 4
+        },
+        {
+          "name": "원팀",
+          "description": "조직 운영과 팀워크 시스템",
+          "count": 2
+        },
+        {
+          "name": "탈케이팝",
+          "description": "글로벌 확장과 장르 다양화",
+          "count": 3
+        },
+        {
+          "name": "굿즈",
+          "description": "상품 기획과 수익 모델 혁신",
+          "count": 2
+        },
+        {
+          "name": "인재",
+          "description": "아티스트 발굴과 육성 시스템",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "mcu",
+      "name": "MCU",
+      "slug": "mcu",
+      "description": "마블 시네마틱 유니버스의 콘텐츠 전략과 IP 활용",
+      "color": "#ed1d24",
+      "articleCount": 10,
+      "path": "categories/mcu.html",
+      "keywords": [
+        {
+          "name": "수익구조",
+          "description": "다각화된 수익 모델과 플랫폼 전략",
+          "count": 3
+        },
+        {
+          "name": "큰그림",
+          "description": "장기적 비전과 전략적 기획",
+          "count": 4
+        },
+        {
+          "name": "세계관",
+          "description": "연결된 유니버스 구축과 확장",
+          "count": 2
+        },
+        {
+          "name": "메시지",
+          "description": "사회적 메시지와 브랜딩 전략",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "produce101",
+      "name": "프로듀스 101",
+      "slug": "produce101",
+      "description": "서바이벌 프로그램의 팬덤 형성과 비즈니스 모델",
+      "color": "#4a90e2",
+      "articleCount": 4,
+      "path": "categories/produce101.html",
+      "keywords": [
+        {
+          "name": "공간경험",
+          "description": "현장과 미디어를 연결한 경험 디자인",
+          "count": 2
+        },
+        {
+          "name": "몰입설계",
+          "description": "시청자 참여와 몰입도 향상 전략",
+          "count": 1
+        },
+        {
+          "name": "수익구조",
+          "description": "다채널 수익화와 팬덤 경제",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "keywords": [
+    {
+      "name": "안정성",
+      "description": "지속 가능한 비즈니스 모델과 리스크 관리",
+      "articles": []
+    },
+    {
+      "name": "독점성",
+      "description": "시장 내 고유 포지션 확보 전략",
+      "articles": []
+    },
+    {
+      "name": "굿즈",
+      "description": "상품 기획과 수익 모델 혁신",
+      "articles": []
+    },
+    {
+      "name": "큰그림",
+      "description": "장기적 비전과 전략적 기획",
+      "articles": ["netflix-vs-marvel"]
+    },
+    {
+      "name": "세계관",
+      "description": "브랜드 유니버스 구축과 스토리텔링",
+      "articles": ["exo-universe"]
+    },
+    {
+      "name": "원팀",
+      "description": "조직 운영과 팀워크 시스템",
+      "articles": []
+    },
+    {
+      "name": "공간경험",
+      "description": "현장과 미디어를 연결한 경험 디자인",
+      "articles": []
+    },
+    {
+      "name": "인재",
+      "description": "아티스트 발굴과 육성 시스템",
+      "articles": []
+    },
+    {
+      "name": "탈케이팝",
+      "description": "글로벌 확장과 장르 다양화",
+      "articles": []
+    },
+    {
+      "name": "몰입설계",
+      "description": "팬 경험 디자인과 몰입도 향상 전략",
+      "articles": ["fan-waiting"]
+    },
+    {
+      "name": "메시지",
+      "description": "사회적 메시지와 브랜딩 전략",
+      "articles": []
+    },
+    {
+      "name": "수익구조",
+      "description": "다각화된 수익 모델과 플랫폼 전략",
+      "articles": ["netflix-vs-marvel"]
+    }
+  ],
+  "site": {
+    "title": "덕질로 배우는 비즈니스",
+    "description": "K-POP, 마블, 엔터테인먼트 산업을 통해 배우는 비즈니스 인사이트",
+    "url": "https://username.github.io/dukjil-website",
+    "author": "덕질러",
+    "email": "contact@dukjil.com",
+    "social": {
+      "twitter": "",
+      "github": "",
+      "linkedin": ""
+    },
+    "analytics": {
+      "googleAnalytics": ""
+    },
+    "lastUpdated": "2025-08-17"
+  },
+  "meta": {
+    "totalArticles": 3,
+    "publishedArticles": 3,
+    "totalCategories": 3,
+    "totalKeywords": 12,
+    "lastGenerated": "2025-08-17T00:00:00Z",
+    "version": "1.0.0"
+  }
+}
