@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://username.github.io/dukjil-website/sitemap.xml
+Sitemap: https://yhyh6565.github.io/dukjil-website/sitemap.xml
 
 # Disallow these paths if they exist in the future
 Disallow: /admin/

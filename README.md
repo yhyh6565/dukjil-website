@@ -82,7 +82,7 @@ git init
 git add .
 git commit -m "Initial commit: 덕질로 배우는 비즈니스 웹사이트"
 git branch -M main
-git remote add origin https://github.com/username/dukjil-website.git
+git remote add origin https://github.com/yhyh6565/dukjil-website.git
 git push -u origin main
 ```
 
@@ -93,7 +93,7 @@ git push -u origin main
 4. Save
 
 ### 3. 사이트 접속
-- URL: `https://username.github.io/dukjil-website`
+- URL: `https://yhyh6565.github.io/dukjil-website`
 - 배포 완료까지 5-10분 소요
 
 ## 📝 콘텐츠 추가 방법
@@ -161,7 +161,7 @@ git push -u origin main
 ## 📞 연락처
 
 - **이메일**: contact@dukjil.com
-- **GitHub**: [프로젝트 저장소](https://github.com/username/dukjil-website)
+- **GitHub**: [프로젝트 저장소](https://github.com/yhyh6565/dukjil-website)
 
 ---
 
