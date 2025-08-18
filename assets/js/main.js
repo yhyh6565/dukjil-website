@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initShareFunctionality();
     initScrollToTop();
     initImageLazyLoading();
+    initFilterSystem();
     initAnalytics();
 });
 
@@ -349,6 +350,104 @@ function initKeyboardNavigation() {
     document.addEventListener('mousedown', function() {
         document.body.classList.remove('keyboard-navigation');
     });
+}
+
+/**
+ * Filter System (Notion Database Style)
+ */
+function initFilterSystem() {
+    const categoryButtons = document.querySelectorAll('[data-category]');
+    const keywordButtons = document.querySelectorAll('[data-keyword]');
+    const articles = document.querySelectorAll('.article-item');
+    const noResults = document.querySelector('.no-results');
+    const resetButton = document.querySelector('.reset-filters-btn');
+    
+    if (!categoryButtons.length || !articles.length) return;
+    
+    let currentCategory = 'all';
+    let currentKeyword = 'all';
+    
+    // Category filter
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const category = this.getAttribute('data-category');
+            
+            // Update active state
+            categoryButtons.forEach(btn => btn.classList.remove('filter-btn--active'));
+            this.classList.add('filter-btn--active');
+            
+            currentCategory = category;
+            applyFilters();
+        });
+    });
+    
+    // Keyword filter
+    keywordButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const keyword = this.getAttribute('data-keyword');
+            
+            // Update active state
+            keywordButtons.forEach(btn => btn.classList.remove('filter-btn--active'));
+            this.classList.add('filter-btn--active');
+            
+            currentKeyword = keyword;
+            applyFilters();
+        });
+    });
+    
+    // Reset filters
+    if (resetButton) {
+        resetButton.addEventListener('click', function() {
+            currentCategory = 'all';
+            currentKeyword = 'all';
+            
+            // Reset button states
+            categoryButtons.forEach(btn => btn.classList.remove('filter-btn--active'));
+            keywordButtons.forEach(btn => btn.classList.remove('filter-btn--active'));
+            
+            document.querySelector('[data-category="all"]').classList.add('filter-btn--active');
+            document.querySelector('[data-keyword="all"]').classList.add('filter-btn--active');
+            
+            applyFilters();
+        });
+    }
+    
+    function applyFilters() {
+        let visibleCount = 0;
+        
+        articles.forEach(article => {
+            const articleCategory = article.getAttribute('data-category');
+            const articleKeyword = article.getAttribute('data-keyword');
+            
+            const categoryMatch = currentCategory === 'all' || articleCategory === currentCategory;
+            const keywordMatch = currentKeyword === 'all' || articleKeyword === currentKeyword;
+            
+            if (categoryMatch && keywordMatch) {
+                article.classList.remove('hidden');
+                visibleCount++;
+            } else {
+                article.classList.add('hidden');
+            }
+        });
+        
+        // Show/hide no results message
+        if (noResults) {
+            if (visibleCount === 0) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        }
+        
+        // Track filter usage
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'filter_applied', {
+                event_category: 'Article Filter',
+                event_label: `${currentCategory}_${currentKeyword}`,
+                value: visibleCount
+            });
+        }
+    }
 }
 
 /**
