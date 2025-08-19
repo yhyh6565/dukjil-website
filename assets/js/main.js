@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollToTop();
     initImageLazyLoading();
     initFilterSystem();
+    initViewTracking();
     initAnalytics();
 });
 
@@ -448,6 +449,107 @@ function initFilterSystem() {
             });
         }
     }
+}
+
+/**
+ * View Tracking System
+ */
+function initViewTracking() {
+    // Track article views
+    if (window.location.pathname.includes('/articles/')) {
+        trackArticleView();
+    }
+    
+    // Update popular articles on main page
+    if (window.location.pathname === '/' || window.location.pathname.includes('/index.html')) {
+        updatePopularArticles();
+    }
+}
+
+function trackArticleView() {
+    const articlePath = window.location.pathname;
+    const articleTitle = document.querySelector('.article-title')?.textContent || '';
+    
+    if (!articlePath || !articleTitle) return;
+    
+    // Get existing views from localStorage
+    let views = JSON.parse(localStorage.getItem('articleViews') || '{}');
+    
+    // Initialize article if not exists
+    if (!views[articlePath]) {
+        views[articlePath] = {
+            title: articleTitle,
+            count: 0,
+            lastViewed: null
+        };
+    }
+    
+    // Check if this is a new view (different day or first time)
+    const today = new Date().toDateString();
+    const lastViewed = views[articlePath].lastViewed;
+    
+    if (lastViewed !== today) {
+        views[articlePath].count++;
+        views[articlePath].lastViewed = today;
+        
+        // Save back to localStorage
+        localStorage.setItem('articleViews', JSON.stringify(views));
+    }
+}
+
+function updatePopularArticles() {
+    const views = JSON.parse(localStorage.getItem('articleViews') || '{}');
+    
+    // Sort articles by view count
+    const sortedArticles = Object.entries(views)
+        .sort((a, b) => b[1].count - a[1].count)
+        .slice(0, 3); // Top 3 articles
+    
+    if (sortedArticles.length === 0) return;
+    
+    // Update featured articles section with view counts
+    const featuredCards = document.querySelectorAll('.featured-card');
+    
+    featuredCards.forEach(card => {
+        const link = card.querySelector('.featured-card-title a');
+        if (!link) return;
+        
+        const href = link.getAttribute('href');
+        const articlePath = href.startsWith('../') ? href.replace('../', '/') : href;
+        
+        if (views[articlePath]) {
+            const meta = card.querySelector('.featured-card-meta');
+            if (meta) {
+                // Remove existing view count if present
+                const existingViewCount = meta.querySelector('.view-count');
+                if (existingViewCount) {
+                    existingViewCount.remove();
+                }
+                
+                // Add view count
+                const viewCount = document.createElement('span');
+                viewCount.className = 'view-count';
+                viewCount.textContent = `👁 ${views[articlePath].count}회`;
+                viewCount.style.cssText = `
+                    color: var(--color-gray-500);
+                    font-size: var(--font-size-xs);
+                `;
+                meta.appendChild(viewCount);
+            }
+        }
+    });
+}
+
+function getPopularArticles() {
+    const views = JSON.parse(localStorage.getItem('articleViews') || '{}');
+    return Object.entries(views)
+        .sort((a, b) => b[1].count - a[1].count)
+        .map(([path, data]) => ({
+            path,
+            title: data.title,
+            count: data.count,
+            lastViewed: data.lastViewed
+        }));
 }
 
 /**
