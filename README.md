@@ -6,35 +6,40 @@ K-POP, 마블, 엔터테인먼트 산업의 성공 사례를 통해 현실적이
 
 - **타입**: 정적 웹사이트 (Static Website)
 - **호스팅**: GitHub Pages
-- **콘텐츠**: 29편의 비즈니스 인사이트 글 (예정)
-- **카테고리**: SM Entertainment, MCU, 프로듀스 101
+- **URL**: https://yhyh6565.github.io/dukjil-website
+- **콘텐츠**: 29편의 비즈니스 인사이트 글 (완료)
+- **카테고리**: SM Entertainment (19개), MCU (6개), 프로듀스 101 (2개)
+- **원본 자료**: Notion 블로그에서 마이그레이션
 
 ## 🏗️ 사이트 구조
 
 ```
 dukjil-website/
-├── index.html                 # 메인 페이지
-├── categories/                # 카테고리 페이지들
+├── index.html                    # 메인 페이지 (동적 글 로딩)
+├── categories/                   # 카테고리 페이지들
 │   ├── sm-entertainment.html
 │   ├── mcu.html
 │   └── produce101.html
-├── articles/                  # 개별 글 페이지들
-│   ├── fan-waiting.html
-│   ├── netflix-vs-marvel.html
-│   └── exo-universe.html
-├── assets/                    # 정적 자원들
+├── articles/                     # 29개 개별 글 페이지들
+│   ├── fandom-stability-1.html
+│   ├── sm-big-picture.html
+│   ├── marvel-27billion-harvest.html
+│   ├── limited-edition-idol.html
+│   └── ... (총 29개)
+├── assets/                       # 정적 자원들
 │   ├── css/
 │   │   ├── main.css
 │   │   ├── article.css
 │   │   └── responsive.css
 │   ├── js/
-│   │   └── main.js
+│   │   └── main.js              # 동적 필터링 & 글 로딩
 │   └── images/
-│       ├── covers/
-│       ├── categories/
-│       └── icons/
+│       ├── covers/              # 글 표지 이미지들
+│       ├── categories/          # 카테고리 아이콘들
+│       └── source-articles/     # 본문 이미지들 (136개)
+│           └── dukjil-writings/
 ├── data/
-│   └── articles.json         # 글 메타데이터
+│   └── articles.json           # 29개 글 메타데이터 (LinkedIn 날짜 적용)
 └── README.md
 ```
 
@@ -55,113 +60,134 @@ dukjil-website/
 
 - **HTML5** (시맨틱 마크업)
 - **CSS3** (Flexbox, Grid, CSS Variables)
-- **Vanilla JavaScript** (ES6+)
+- **Vanilla JavaScript** (ES6+, Fetch API)
+- **JSON** (데이터 관리)
 - **Google Fonts** (웹폰트)
 
 ## 📱 주요 기능
 
-### 현재 구현된 기능
-- ✅ 반응형 네비게이션
-- ✅ 카테고리별 페이지 분리
-- ✅ 글 목록 및 상세 페이지
-- ✅ 키워드 태그 시스템
-- ✅ 모바일 최적화
-- ✅ URL 복사 기능
+### ✅ 현재 구현된 기능
+- **동적 콘텐츠 로딩**: articles.json에서 29개 글 자동 로드
+- **Notion 스타일 필터링**: 카테고리별 + 키워드별 실시간 필터
+- **브라우저 히스토리 관리**: 뒤로가기 시 필터 상태 초기화
+- **반응형 네비게이션**: 모바일 햄버거 메뉴
+- **이미지 최적화**: 136개 이미지 파일 관리
+- **LinkedIn 업로드 날짜**: 실제 게시일 반영 (2025.03.18 ~ 2025.05.22)
+- **URL 복사 기능**: 글 공유하기
+- **스크롤 투 탑**: 긴 글 목록 네비게이션
 
-### 향후 추가 예정
+### 🔮 향후 추가 예정
 - [ ] 클라이언트 사이드 검색
 - [ ] 다크모드 토글
 - [ ] 읽기 진행률 표시
 - [ ] Google Analytics 연동
+- [ ] 관련 글 추천 시스템
 
-## 🚀 GitHub Pages 배포
+## 🎯 비즈니스 키워드 체계
 
-### 1. 저장소 설정
+총 11개의 핵심 키워드로 콘텐츠 분류:
+
+### SM Entertainment (19개 글)
+1. **안정성** (3개) - 팬덤 안정성과 리스크 관리
+2. **독점성** (2개) - 플랫폼 독점과 소통 전략
+3. **굿즈** (3개) - 포토카드, 인형, 앨범 수익화
+4. **몰입설계** (2개) - 팬 경험과 기대감 관리
+5. **세계관** (3개) - EXO 세계관, IP 확장
+6. **공간경험** (2개) - 아티움, 팝업 전략
+7. **인재** (1개) - SM Rookies 시스템
+8. **브랜드** (2개) - SM깔, 브랜딩 전략
+9. **기타** - NCT유닛전략, 큰그림, 수익모델 등
+
+### MCU (6개 글)
+1. **큰그림** (2개) - 장기 전략과 페이즈 계획
+2. **세계관전략** (1개) - 연결된 유니버스
+3. **스포일러마케팅** (1개) - 정보 공개 전략
+4. **캐릭터브랜딩** (1개) - 캐릭터 기반 브랜딩
+5. **수익구조** (1개) - 플랫폼별 수익 모델
+
+### 프로듀스 101 (2개 글)
+1. **팬참여형** (1개) - 투표 시스템
+2. **희소성전략** (1개) - 한정판 아이돌
+
+## 🚀 배포 및 업데이트
+
+### GitHub Pages 자동 배포
 ```bash
-git init
+# 변경사항 커밋 & 푸시시 자동 배포
 git add .
-git commit -m "Initial commit: 덕질로 배우는 비즈니스 웹사이트"
-git branch -M main
-git remote add origin https://github.com/yhyh6565/dukjil-website.git
-git push -u origin main
+git commit -m "Update content"
+git push origin main
+# 약 2-3분 후 https://yhyh6565.github.io/dukjil-website 업데이트
 ```
 
-### 2. GitHub Pages 활성화
-1. GitHub 저장소 → Settings → Pages
-2. Source: Deploy from a branch
-3. Branch: main / (root)
-4. Save
+### 콘텐츠 업데이트 방법
+1. **새 글 추가**: 
+   - `articles/` 폴더에 HTML 파일 생성
+   - `data/articles.json`에 메타데이터 추가
+   - 이미지는 `assets/images/source-articles/` 구조 유지
 
-### 3. 사이트 접속
-- URL: `https://yhyh6565.github.io/dukjil-website`
-- 배포 완료까지 5-10분 소요
+2. **필터 키워드 추가**:
+   - `articles.json`의 `keywords` 배열에 추가
+   - 자동으로 UI에 반영됨
 
-## 📝 콘텐츠 추가 방법
+## 📊 콘텐츠 현황
 
-### 새 글 추가
-1. `articles/` 폴더에 새 HTML 파일 생성
-2. `data/articles.json`에 메타데이터 추가
-3. 필요시 `index.html`과 카테고리 페이지 업데이트
+### 글 분포
+- **SM Entertainment**: 19개 (66%)
+- **MCU**: 6개 (21%) 
+- **프로듀스 101**: 2개 (7%)
+- **기타**: 2개 (6%)
 
-### 샘플 글 구조
-```html
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>글 제목 - 덕질로 배우는 비즈니스</title>
-    <!-- 메타 태그들 -->
-    <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" href="../assets/css/article.css">
-    <link rel="stylesheet" href="../assets/css/responsive.css">
-</head>
-<body>
-    <!-- 네비게이션 -->
-    <!-- 글 내용 -->
-    <!-- 푸터 -->
-    <script src="../assets/js/main.js"></script>
-</body>
-</html>
-```
+### 발행 날짜
+- **최신**: 2025년 5월 22일 (11%의 데뷔 확률, 1.5년의 활동)
+- **최초**: 2025년 3월 18일 (팬덤은 안정적인 덕질을 원한다)
+- **총 기간**: 2개월간 집중 발행
 
-## 🎯 비즈니스 키워드
+### 이미지 자료
+- **총 이미지**: 136개
+- **표지 이미지**: 29개 (각 글마다)
+- **본문 이미지**: 107개 (글 내용 삽화)
 
-총 12개의 핵심 키워드를 통해 콘텐츠를 분류:
+## 🔄 주요 업데이트 로그
 
-1. **안정성** - 지속 가능한 비즈니스 모델
-2. **독점성** - 시장 내 고유 포지션
-3. **굿즈** - 상품 기획과 수익 모델
-4. **큰그림** - 장기적 비전과 전략
-5. **세계관** - 브랜드 유니버스 구축
-6. **원팀** - 조직 운영과 팀워크
-7. **공간경험** - 경험 디자인
-8. **인재** - 인재 발굴과 육성
-9. **탈케이팝** - 글로벌 확장
-10. **몰입설계** - 고객 경험 관리
-11. **메시지** - 브랜딩과 커뮤니케이션
-12. **수익구조** - 다각화된 수익 모델
+### v2.0.0 (2025-08-20) - 메이저 업데이트
+- ✅ 29개 모든 글 업로드 완료 (Notion → HTML 변환)
+- ✅ articles.json 데이터베이스 구축
+- ✅ 동적 글 로딩 시스템 구현
+- ✅ LinkedIn 실제 업로드 날짜 반영
+- ✅ 브라우저 뒤로가기 필터 문제 해결
+- ✅ 136개 이미지 파일 최적화 배치
 
-## 📊 현재 상태
-
-- **총 글 수**: 3개 (샘플)
-- **카테고리**: 3개
-- **반응형**: 완료
-- **브라우저 호환성**: Modern browsers
-- **성능 최적화**: 기본적 최적화 완료
-
-## 🔄 업데이트 로그
-
-### v1.0.0 (2025-08-17)
+### v1.0.0 (2025-08-17) - 초기 버전
 - 기본 웹사이트 구조 완성
 - 샘플 콘텐츠 3개 추가
 - 반응형 디자인 구현
 - GitHub Pages 배포 준비 완료
 
-## 📞 연락처
+## 🛠️ 개발 환경
 
-- **이메일**: contact@dukjil.com
-- **GitHub**: [프로젝트 저장소](https://github.com/yhyh6565/dukjil-website)
+### 요구사항
+- Modern web browser (ES6+ 지원)
+- GitHub Pages 호스팅
+- 인터넷 연결 (Google Fonts)
+
+### 로컬 개발
+```bash
+# 정적 파일 서버 실행 (Python 3)
+python -m http.server 8000
+
+# 또는 Node.js serve
+npx serve .
+
+# 브라우저에서 http://localhost:8000 접속
+```
+
+## 📧 연락처
+
+- **작성자**: Yeonhee Do
+- **이메일**: yeonheedo1127@gmail.com
+- **LinkedIn**: https://linkedin.com/in/yeonhee-do-7283801a5
+- **GitHub**: https://github.com/yhyh6565/dukjil-website
 
 ---
 
