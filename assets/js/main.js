@@ -357,23 +357,274 @@ function initKeyboardNavigation() {
  * Load Articles Data from JSON
  */
 async function loadArticlesData() {
+    console.log('Loading articles data...');
     try {
-        const response = await fetch('data/articles.json');
+        const response = await fetch('./data/articles.json');
+        console.log('Fetch response:', response);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
         const data = await response.json();
+        console.log('Articles data loaded:', data);
         
         if (data && data.articles) {
+            console.log(`Found ${data.articles.length} articles`);
             renderArticles(data.articles);
             renderFilters(data.categories, data.keywords);
             initFilterSystem();
+        } else {
+            throw new Error('Invalid data structure');
         }
     } catch (error) {
         console.error('Failed to load articles data:', error);
-        // Show fallback content or error message
-        const articlesList = document.getElementById('articles-list');
-        if (articlesList) {
-            articlesList.innerHTML = '<p>글을 불러오는 중 오류가 발생했습니다.</p>';
-        }
+        // Fallback to hardcoded articles if JSON fails
+        loadFallbackArticles();
     }
+}
+
+/**
+ * Fallback Articles (in case JSON loading fails)
+ */
+function loadFallbackArticles() {
+    console.log('Loading fallback articles...');
+    const fallbackArticles = [
+        {
+            id: "limited-edition-idol",
+            title: "11%의 데뷔 확률, 1.5년의 활동 – 다시 없을 '한정판' 아이돌",
+            category: "프로듀스 101",
+            categorySlug: "produce101",
+            keyword: "희소성전략",
+            date: "2025-05-22",
+            excerpt: "Wanna One을 통해 본 한정판 아이돌의 희소성 마케팅 전략",
+            readTime: "8분 읽기",
+            path: "articles/limited-edition-idol.html"
+        },
+        {
+            id: "produce-vote-800-billion",
+            title: "1,200만 표로 완성된 800억 – "당신의 소년에게 투표하세요", 팬이 만든 아이돌의 정석",
+            category: "프로듀스 101",
+            categorySlug: "produce101",
+            keyword: "팬참여형",
+            date: "2025-05-21",
+            excerpt: "프로듀스 101 시즌2를 통해 본 팬 참여형 콘텐츠 제작의 성공 전략",
+            readTime: "9분 읽기",
+            path: "articles/produce-vote-800-billion.html"
+        },
+        {
+            id: "netflix-vs-marvel",
+            title: "한 방을 노리는 넷플릭스, 꾸준히 회수하는 마블",
+            category: "MCU",
+            categorySlug: "mcu",
+            keyword: "수익구조",
+            date: "2025-05-20",
+            excerpt: "플랫폼별 콘텐츠 전략의 차이점과 수익 모델 분석",
+            readTime: "7분 읽기",
+            path: "articles/netflix-vs-marvel.html"
+        },
+        {
+            id: "thunderbolts-together",
+            title: "왜 우리는 더 이상 혼자일 수 없는가 - 썬더볼츠(2025)로 마블이 하고 싶은 메시지",
+            category: "MCU",
+            categorySlug: "mcu",
+            keyword: "썬더볼츠",
+            date: "2025-05-15",
+            excerpt: "마블이 썬더볼츠를 통해 전달하려는 고립과 연대의 메시지",
+            readTime: "6분 읽기",
+            path: "articles/thunderbolts-together.html"
+        },
+        {
+            id: "marvel-15-years-message",
+            title: "너는 무엇을 위해 함께할 수 있는가, 15년 동안 마블이 만들어온 메시지",
+            category: "MCU",
+            categorySlug: "mcu",
+            keyword: "캐릭터브랜딩",
+            date: "2025-05-14",
+            excerpt: "15년간 마블이 구축한 캐릭터 기반 브랜딩 전략과 메시지",
+            readTime: "7분 읽기",
+            path: "articles/marvel-15-years-message.html"
+        },
+        {
+            id: "spoiler-free-2-8b",
+            title: "오늘부터 스포일러 금지, $2.8B 매출을 안겨준 팬들과의 약속",
+            category: "MCU",
+            categorySlug: "mcu",
+            keyword: "스포일러마케팅",
+            date: "2025-05-13",
+            excerpt: "마블의 스포일러 방지 캠페인이 28억 달러 매출에 미친 영향",
+            readTime: "6분 읽기",
+            path: "articles/spoiler-free-2-8b.html"
+        },
+        {
+            id: "marvel-saga-dc-chronicle",
+            title: "Saga로 엮은 마블, Chronicle로 남긴 DC",
+            category: "MCU",
+            categorySlug: "mcu",
+            keyword: "세계관전략",
+            date: "2025-05-07",
+            excerpt: "MCU의 연결된 유니버스 vs DC의 독립형 접근법 비교 분석",
+            readTime: "8분 읽기",
+            path: "articles/marvel-saga-dc-chronicle.html"
+        },
+        {
+            id: "escape-kpop-intelligence",
+            title: "'탈(脫)K-POP은 지능 순'이라는 자조, 그 구조엔 이유가 있다",
+            category: "SM Entertainment",
+            categorySlug: "sm-entertainment",
+            keyword: "산업위기",
+            date: "2025-05-06",
+            excerpt: "K-POP 산업의 구조적 위기와 팬 피로감 분석",
+            readTime: "7분 읽기",
+            path: "articles/escape-kpop-intelligence.html"
+        },
+        {
+            id: "sm-quality-guarantee",
+            title: "'SM깔'이라는 100점짜리 품질보증서",
+            category: "SM Entertainment",
+            categorySlug: "sm-entertainment",
+            keyword: "브랜드감각",
+            date: "2025-05-01",
+            excerpt: "SM의 브랜드 정체성이 개인의 감각에서 시스템적 관리로 진화한 과정",
+            readTime: "6분 읽기",
+            path: "articles/sm-quality-guarantee.html"
+        },
+        {
+            id: "sm-debut-day-zero",
+            title: "'콘텐츠 없이' 데뷔 0일 차에 팬덤 보유",
+            category: "SM Entertainment",
+            categorySlug: "sm-entertainment",
+            keyword: "인재선점",
+            date: "2025-04-30",
+            excerpt: "SM Rookies 시스템을 통한 전략적 인재 확보와 사전 팬덤 구축",
+            readTime: "7분 읽기",
+            path: "articles/sm-debut-day-zero.html"
+        },
+        {
+            id: "artium-popup",
+            title: "수백만이 다녀갔지만 적자였던 아티움, 짧게 열고 다 팔아버린 팝업",
+            category: "SM Entertainment",
+            categorySlug: "sm-entertainment",
+            keyword: "공간전략",
+            date: "2025-04-29",
+            excerpt: "상설 공간에서 팝업 전략으로의 전환과 그 성과",
+            readTime: "6분 읽기",
+            path: "articles/artium-popup.html"
+        },
+        {
+            id: "smtown-artium",
+            title: "연간 수백만이 찾은 도심 속 K-POP 테마파크, SMTOWN 아티움",
+            category: "SM Entertainment",
+            categorySlug: "sm-entertainment",
+            keyword: "공간경험",
+            date: "2025-04-24",
+            excerpt: "SM의 물리적 공간 전략과 팬 경험 설계",
+            readTime: "8분 읽기",
+            path: "articles/smtown-artium.html"
+        },
+        {
+            id: "smtown-concert-merchandise",
+            title: "225억 공연 + 512억 굿즈, '같이' 팔아서 더 크게 만든 SM타운 효과",
+            category: "SM Entertainment",
+            categorySlug: "sm-entertainment",
+            keyword: "수익모델",
+            date: "2025-04-23",
+            excerpt: "SMTOWN의 통합 수익 모델과 팬 경험 분석",
+            readTime: "7분 읽기",
+            path: "articles/smtown-concert-merchandise.html"
+        },
+        {
+            id: "smtown-strategy",
+            title: "그룹이 아니라 회사를 덕질하게 만든 전략, 'SMTOWN'",
+            category: "SM Entertainment",
+            categorySlug: "sm-entertainment",
+            keyword: "브랜드전략",
+            date: "2025-04-22",
+            excerpt: "SM이 회사 차원의 팬덤을 구축한 SMTOWN 브랜딩 전략",
+            readTime: "8분 읽기",
+            path: "articles/smtown-strategy.html"
+        },
+        {
+            id: "emotional-vs-analytical",
+            title: "정서적 몰입 vs 분석적 해석, 팬은 어디에 머무는가?",
+            category: "SM Entertainment",
+            categorySlug: "sm-entertainment",
+            keyword: "팬몰입분석",
+            date: "2025-04-17",
+            excerpt: "아이돌과 마블 팬덤의 몰입 방식 비교 분석",
+            readTime: "7분 읽기",
+            path: "articles/emotional-vs-analytical.html"
+        },
+        {
+            id: "marvel-27billion-harvest",
+            title: "10년간 심은 떡밥, 27.9억 달러로 회수되다",
+            category: "MCU",
+            categorySlug: "mcu",
+            keyword: "큰그림",
+            date: "2025-04-16",
+            excerpt: "마블이 페이즈별로 떡밥을 던지며 세계관을 구축한 전략과 27.9억 달러라는 성과 분석",
+            readTime: "8분 읽기",
+            path: "articles/marvel-27billion-harvest.html"
+        },
+        {
+            id: "exo-universe",
+            title: "EXO를 해석하라, 세계관이 만든 밀리언셀러",
+            category: "SM Entertainment",
+            categorySlug: "sm-entertainment",
+            keyword: "세계관",
+            date: "2025-04-14",
+            excerpt: "브랜드 세계관 구축이 고객 충성도와 매출에 미치는 영향",
+            readTime: "6분 읽기",
+            path: "articles/exo-universe.html"
+        },
+        {
+            id: "world-view-ip-25x",
+            title: "세계관 하나로 2차 IP 매출 2.5배",
+            category: "SM Entertainment",
+            categorySlug: "sm-entertainment",
+            keyword: "세계관마케팅",
+            date: "2025-04-10",
+            excerpt: "아이돌 세계관이 브랜드 자산이 되어 IP 매출을 늘린 전략 분석",
+            readTime: "6분 읽기",
+            path: "articles/world-view-ip-25x.html"
+        },
+        {
+            id: "sm-big-picture",
+            title: "앨범은 덤, SM의 '큰 그림 전략'",
+            category: "SM Entertainment",
+            categorySlug: "sm-entertainment",
+            keyword: "큰그림",
+            date: "2025-04-09",
+            excerpt: "왜 SM은 '큰 그림'을 먼저 그리고, 앨범은 그 위에 덧칠하는가 – 팬덤 비즈니스에서 비주얼 디렉팅 전략의 힘",
+            readTime: "10분 읽기",
+            path: "articles/sm-big-picture.html"
+        },
+        {
+            id: "nct-4500-million",
+            title: "따로 또 같이, 4500만 장을 판 팀 'NCT'",
+            category: "SM Entertainment",
+            categorySlug: "sm-entertainment",
+            keyword: "NCT유닛전략",
+            date: "2025-04-08",
+            excerpt: "NCT의 무한 확장형 그룹 전략과 브랜드형 아이돌 체제 분석",
+            readTime: "7분 읽기",
+            path: "articles/nct-4500-million.html"
+        },
+        {
+            id: "fan-waiting",
+            title: "팬은 기다림도 소비한다",
+            category: "SM Entertainment",
+            categorySlug: "sm-entertainment",
+            keyword: "몰입설계",
+            date: "2025-04-01",
+            excerpt: "SM의 티저 전략을 통해 본 고객 기대감 관리와 마케팅 타이밍의 중요성",
+            readTime: "5분 읽기",
+            path: "articles/fan-waiting.html"
+        }
+    ];
+    
+    renderArticles(fallbackArticles);
+    initFilterSystem();
 }
 
 /**
