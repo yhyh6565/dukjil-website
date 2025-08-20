@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initShareFunctionality();
     initScrollToTop();
     initImageLazyLoading();
-    initFilterSystem();
+    loadArticlesData();
     initViewTracking();
     initAnalytics();
 });
@@ -351,6 +351,97 @@ function initKeyboardNavigation() {
     document.addEventListener('mousedown', function() {
         document.body.classList.remove('keyboard-navigation');
     });
+}
+
+/**
+ * Load Articles Data from JSON
+ */
+async function loadArticlesData() {
+    try {
+        const response = await fetch('data/articles.json');
+        const data = await response.json();
+        
+        if (data && data.articles) {
+            renderArticles(data.articles);
+            renderFilters(data.categories, data.keywords);
+            initFilterSystem();
+        }
+    } catch (error) {
+        console.error('Failed to load articles data:', error);
+        // Show fallback content or error message
+        const articlesList = document.getElementById('articles-list');
+        if (articlesList) {
+            articlesList.innerHTML = '<p>글을 불러오는 중 오류가 발생했습니다.</p>';
+        }
+    }
+}
+
+/**
+ * Render Articles List
+ */
+function renderArticles(articles) {
+    const articlesList = document.getElementById('articles-list');
+    if (!articlesList) return;
+    
+    // Sort articles by date (newest first)
+    const sortedArticles = articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+    
+    const articlesHTML = sortedArticles.map(article => {
+        const categoryClass = getCategoryClass(article.categorySlug);
+        return `
+            <article class="article-item" data-category="${article.categorySlug}" data-keyword="${article.keyword}">
+                <div class="article-item-category ${categoryClass}">${article.category}</div>
+                <h3 class="article-item-title">
+                    <a href="${article.path}">${article.title}</a>
+                </h3>
+                <p class="article-item-excerpt">${article.excerpt}</p>
+                <div class="article-item-meta">
+                    <span class="keyword">${article.keyword}</span>
+                    <time class="date">${formatDate(article.date)}</time>
+                </div>
+            </article>
+        `;
+    }).join('');
+    
+    articlesList.innerHTML = articlesHTML;
+}
+
+/**
+ * Render Dynamic Filters
+ */
+function renderFilters(categories, keywords) {
+    // Update keyword filters dynamically
+    const keywordButtonsContainer = document.querySelector('.filter-group:last-child .filter-buttons');
+    if (keywordButtonsContainer && keywords) {
+        const keywordButtons = keywords.map(keyword => 
+            `<button class="filter-btn filter-btn--keyword" data-keyword="${keyword.name}">${keyword.name}</button>`
+        ).join('');
+        
+        keywordButtonsContainer.innerHTML = `
+            <button class="filter-btn filter-btn--keyword filter-btn--active" data-keyword="all">전체</button>
+            ${keywordButtons}
+        `;
+    }
+}
+
+/**
+ * Helper Functions
+ */
+function getCategoryClass(categorySlug) {
+    switch (categorySlug) {
+        case 'sm-entertainment': return 'category-sm';
+        case 'mcu': return 'category-mcu';
+        case 'produce101': return 'category-produce';
+        default: return 'category-default';
+    }
+}
+
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}.${month}.${day}`;
 }
 
 /**
