@@ -368,6 +368,42 @@ function initFilterSystem() {
     let currentCategory = 'all';
     let currentKeyword = 'all';
     
+    // Handle browser back/forward navigation
+    window.addEventListener('popstate', function(event) {
+        // Reset filters when user navigates back
+        resetFilters();
+    });
+    
+    // Check URL parameters on page load
+    function initializeFiltersFromURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const categoryParam = urlParams.get('category');
+        const keywordParam = urlParams.get('keyword');
+        
+        if (categoryParam && categoryParam !== 'all') {
+            const categoryBtn = document.querySelector(`[data-category="${categoryParam}"]`);
+            if (categoryBtn) {
+                categoryButtons.forEach(btn => btn.classList.remove('filter-btn--active'));
+                categoryBtn.classList.add('filter-btn--active');
+                currentCategory = categoryParam;
+            }
+        }
+        
+        if (keywordParam && keywordParam !== 'all') {
+            const keywordBtn = document.querySelector(`[data-keyword="${keywordParam}"]`);
+            if (keywordBtn) {
+                keywordButtons.forEach(btn => btn.classList.remove('filter-btn--active'));
+                keywordBtn.classList.add('filter-btn--active');
+                currentKeyword = keywordParam;
+            }
+        }
+        
+        applyFilters();
+    }
+    
+    // Initialize filters from URL
+    initializeFiltersFromURL();
+    
     // Category filter
     categoryButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -396,21 +432,28 @@ function initFilterSystem() {
         });
     });
     
-    // Reset filters
+    // Reset filters function
+    function resetFilters() {
+        currentCategory = 'all';
+        currentKeyword = 'all';
+        
+        // Reset button states
+        categoryButtons.forEach(btn => btn.classList.remove('filter-btn--active'));
+        keywordButtons.forEach(btn => btn.classList.remove('filter-btn--active'));
+        
+        // Set "전체" buttons as active
+        const allCategoryBtn = document.querySelector('[data-category="all"]');
+        const allKeywordBtn = document.querySelector('[data-keyword="all"]');
+        
+        if (allCategoryBtn) allCategoryBtn.classList.add('filter-btn--active');
+        if (allKeywordBtn) allKeywordBtn.classList.add('filter-btn--active');
+        
+        applyFilters();
+    }
+    
+    // Reset filters button
     if (resetButton) {
-        resetButton.addEventListener('click', function() {
-            currentCategory = 'all';
-            currentKeyword = 'all';
-            
-            // Reset button states
-            categoryButtons.forEach(btn => btn.classList.remove('filter-btn--active'));
-            keywordButtons.forEach(btn => btn.classList.remove('filter-btn--active'));
-            
-            document.querySelector('[data-category="all"]').classList.add('filter-btn--active');
-            document.querySelector('[data-keyword="all"]').classList.add('filter-btn--active');
-            
-            applyFilters();
-        });
+        resetButton.addEventListener('click', resetFilters);
     }
     
     function applyFilters() {
