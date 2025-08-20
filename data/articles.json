@@ -1,23 +1,42 @@
 {
   "articles": [
     {
-      "id": "fan-waiting",
-      "title": "팬은 기다림도 소비한다",
-      "category": "SM Entertainment",
-      "categorySlug": "sm-entertainment",
-      "keyword": "몰입설계",
-      "date": "2025-06-04",
-      "dateFormatted": "2025년 6월 4일",
-      "excerpt": "SM의 티저 전략을 통해 본 고객 기대감 관리와 마케팅 타이밍의 중요성",
-      "readTime": "5분 읽기",
+      "id": "limited-edition-idol",
+      "title": "11%의 데뷔 확률, 1.5년의 활동 – 다시 없을 '한정판' 아이돌",
+      "category": "프로듀스 101",
+      "categorySlug": "produce101",
+      "keyword": "희소성전략",
+      "date": "2025-05-22",
+      "dateFormatted": "2025년 5월 22일",
+      "excerpt": "Wanna One을 통해 본 한정판 아이돌의 희소성 마케팅 전략",
+      "readTime": "8분 읽기",
       "featured": true,
       "published": true,
-      "slug": "fan-waiting",
-      "path": "articles/fan-waiting.html",
-      "tags": ["SM Entertainment", "마케팅", "팬덤", "경험 디자인"],
+      "slug": "limited-edition-idol",
+      "path": "articles/limited-edition-idol.html",
+      "tags": ["프로듀스 101", "한정판", "희소성", "마케팅"],
       "author": "덕질러",
-      "metaDescription": "SM의 티저 전략을 통해 본 고객 기대감 관리와 마케팅 타이밍의 중요성",
-      "socialImage": "assets/images/covers/fan-waiting.jpg"
+      "metaDescription": "Wanna One을 통해 본 한정판 아이돌의 희소성 마케팅 전략",
+      "socialImage": "assets/images/covers/limited-edition-idol.jpg"
+    },
+    {
+      "id": "produce-vote-800-billion",
+      "title": "1,200만 표로 완성된 800억 – "당신의 소년에게 투표하세요", 팬이 만든 아이돌의 정석",
+      "category": "프로듀스 101",
+      "categorySlug": "produce101",
+      "keyword": "팬참여형",
+      "date": "2025-05-21",
+      "dateFormatted": "2025년 5월 21일",
+      "excerpt": "프로듀스 101 시즌2를 통해 본 팬 참여형 콘텐츠 제작의 성공 전략",
+      "readTime": "9분 읽기",
+      "featured": true,
+      "published": true,
+      "slug": "produce-vote-800-billion",
+      "path": "articles/produce-vote-800-billion.html",
+      "tags": ["프로듀스 101", "팬 참여", "투표", "콘텐츠 제작"],
+      "author": "덕질러",
+      "metaDescription": "프로듀스 101 시즌2를 통해 본 팬 참여형 콘텐츠 제작의 성공 전략",
+      "socialImage": "assets/images/covers/produce-vote-800-billion.jpg"
     },
     {
       "id": "netflix-vs-marvel",
@@ -25,8 +44,8 @@
       "category": "MCU",
       "categorySlug": "mcu",
       "keyword": "수익구조",
-      "date": "2025-05-28",
-      "dateFormatted": "2025년 5월 28일",
+      "date": "2025-05-20",
+      "dateFormatted": "2025년 5월 20일",
       "excerpt": "플랫폼별 콘텐츠 전략의 차이점과 수익 모델 분석",
       "readTime": "7분 읽기",
       "featured": true,
@@ -39,13 +58,260 @@
       "socialImage": "assets/images/covers/netflix-vs-marvel.jpg"
     },
     {
+      "id": "thunderbolts-together",
+      "title": "왜 우리는 더 이상 혼자일 수 없는가 - 썬더볼츠(2025)로 마블이 하고 싶은 메시지",
+      "category": "MCU",
+      "categorySlug": "mcu",
+      "keyword": "썬더볼츠",
+      "date": "2025-05-15",
+      "dateFormatted": "2025년 5월 15일",
+      "excerpt": "마블이 썬더볼츠를 통해 전달하려는 고립과 연대의 메시지",
+      "readTime": "6분 읽기",
+      "featured": false,
+      "published": true,
+      "slug": "thunderbolts-together",
+      "path": "articles/thunderbolts-together.html",
+      "tags": ["MCU", "썬더볼츠", "캐릭터", "메시지"],
+      "author": "덕질러",
+      "metaDescription": "마블이 썬더볼츠를 통해 전달하려는 고립과 연대의 메시지",
+      "socialImage": "assets/images/covers/thunderbolts-together.jpg"
+    },
+    {
+      "id": "marvel-15-years-message",
+      "title": "너는 무엇을 위해 함께할 수 있는가, 15년 동안 마블이 만들어온 메시지",
+      "category": "MCU",
+      "categorySlug": "mcu",
+      "keyword": "캐릭터브랜딩",
+      "date": "2025-05-14",
+      "dateFormatted": "2025년 5월 14일",
+      "excerpt": "15년간 마블이 구축한 캐릭터 기반 브랜딩 전략과 메시지",
+      "readTime": "7분 읽기",
+      "featured": false,
+      "published": true,
+      "slug": "marvel-15-years-message",
+      "path": "articles/marvel-15-years-message.html",
+      "tags": ["MCU", "캐릭터", "브랜딩", "메시지"],
+      "author": "덕질러",
+      "metaDescription": "15년간 마블이 구축한 캐릭터 기반 브랜딩 전략과 메시지",
+      "socialImage": "assets/images/covers/marvel-15-years-message.jpg"
+    },
+    {
+      "id": "spoiler-free-2-8b",
+      "title": "오늘부터 스포일러 금지, $2.8B 매출을 안겨준 팬들과의 약속",
+      "category": "MCU",
+      "categorySlug": "mcu",
+      "keyword": "스포일러마케팅",
+      "date": "2025-05-13",
+      "dateFormatted": "2025년 5월 13일",
+      "excerpt": "마블의 스포일러 방지 캠페인이 28억 달러 매출에 미친 영향",
+      "readTime": "6분 읽기",
+      "featured": false,
+      "published": true,
+      "slug": "spoiler-free-2-8b",
+      "path": "articles/spoiler-free-2-8b.html",
+      "tags": ["MCU", "스포일러", "마케팅", "팬 관계"],
+      "author": "덕질러",
+      "metaDescription": "마블의 스포일러 방지 캠페인이 28억 달러 매출에 미친 영향",
+      "socialImage": "assets/images/covers/spoiler-free-2-8b.jpg"
+    },
+    {
+      "id": "marvel-saga-dc-chronicle",
+      "title": "Saga로 엮은 마블, Chronicle로 남긴 DC",
+      "category": "MCU",
+      "categorySlug": "mcu",
+      "keyword": "세계관전략",
+      "date": "2025-05-07",
+      "dateFormatted": "2025년 5월 7일",
+      "excerpt": "MCU의 연결된 유니버스 vs DC의 독립형 접근법 비교 분석",
+      "readTime": "8분 읽기",
+      "featured": false,
+      "published": true,
+      "slug": "marvel-saga-dc-chronicle",
+      "path": "articles/marvel-saga-dc-chronicle.html",
+      "tags": ["MCU", "DC", "세계관", "전략 비교"],
+      "author": "덕질러",
+      "metaDescription": "MCU의 연결된 유니버스 vs DC의 독립형 접근법 비교 분석",
+      "socialImage": "assets/images/covers/marvel-saga-dc-chronicle.jpg"
+    },
+    {
+      "id": "escape-kpop-intelligence",
+      "title": "'탈(脫)K-POP은 지능 순'이라는 자조, 그 구조엔 이유가 있다",
+      "category": "SM Entertainment",
+      "categorySlug": "sm-entertainment",
+      "keyword": "산업위기",
+      "date": "2025-05-06",
+      "dateFormatted": "2025년 5월 6일",
+      "excerpt": "K-POP 산업의 구조적 위기와 팬 피로감 분석",
+      "readTime": "7분 읽기",
+      "featured": false,
+      "published": true,
+      "slug": "escape-kpop-intelligence",
+      "path": "articles/escape-kpop-intelligence.html",
+      "tags": ["SM Entertainment", "산업 분석", "팬덤", "위기"],
+      "author": "덕질러",
+      "metaDescription": "K-POP 산업의 구조적 위기와 팬 피로감 분석",
+      "socialImage": "assets/images/covers/escape-kpop-intelligence.jpg"
+    },
+    {
+      "id": "sm-quality-guarantee",
+      "title": "'SM깔'이라는 100점짜리 품질보증서",
+      "category": "SM Entertainment",
+      "categorySlug": "sm-entertainment",
+      "keyword": "브랜드감각",
+      "date": "2025-05-01",
+      "dateFormatted": "2025년 5월 1일",
+      "excerpt": "SM의 브랜드 정체성이 개인의 감각에서 시스템적 관리로 진화한 과정",
+      "readTime": "6분 읽기",
+      "featured": false,
+      "published": true,
+      "slug": "sm-quality-guarantee",
+      "path": "articles/sm-quality-guarantee.html",
+      "tags": ["SM Entertainment", "브랜드", "품질", "정체성"],
+      "author": "덕질러",
+      "metaDescription": "SM의 브랜드 정체성이 개인의 감각에서 시스템적 관리로 진화한 과정",
+      "socialImage": "assets/images/covers/sm-quality-guarantee.jpg"
+    },
+    {
+      "id": "sm-debut-day-zero",
+      "title": "'콘텐츠 없이' 데뷔 0일 차에 팬덤 보유",
+      "category": "SM Entertainment",
+      "categorySlug": "sm-entertainment",
+      "keyword": "인재선점",
+      "date": "2025-04-30",
+      "dateFormatted": "2025년 4월 30일",
+      "excerpt": "SM Rookies 시스템을 통한 전략적 인재 확보와 사전 팬덤 구축",
+      "readTime": "7분 읽기",
+      "featured": false,
+      "published": true,
+      "slug": "sm-debut-day-zero",
+      "path": "articles/sm-debut-day-zero.html",
+      "tags": ["SM Entertainment", "인재", "전략", "팬덤"],
+      "author": "덕질러",
+      "metaDescription": "SM Rookies 시스템을 통한 전략적 인재 확보와 사전 팬덤 구축",
+      "socialImage": "assets/images/covers/sm-debut-day-zero.jpg"
+    },
+    {
+      "id": "artium-popup",
+      "title": "수백만이 다녀갔지만 적자였던 아티움, 짧게 열고 다 팔아버린 팝업",
+      "category": "SM Entertainment",
+      "categorySlug": "sm-entertainment",
+      "keyword": "공간전략",
+      "date": "2025-04-29",
+      "dateFormatted": "2025년 4월 29일",
+      "excerpt": "상설 공간에서 팝업 전략으로의 전환과 그 성과",
+      "readTime": "6분 읽기",
+      "featured": false,
+      "published": true,
+      "slug": "artium-popup",
+      "path": "articles/artium-popup.html",
+      "tags": ["SM Entertainment", "팝업", "공간", "전략"],
+      "author": "덕질러",
+      "metaDescription": "상설 공간에서 팝업 전략으로의 전환과 그 성과",
+      "socialImage": "assets/images/covers/artium-popup.jpg"
+    },
+    {
+      "id": "smtown-artium",
+      "title": "연간 수백만이 찾은 도심 속 K-POP 테마파크, SMTOWN 아티움",
+      "category": "SM Entertainment",
+      "categorySlug": "sm-entertainment",
+      "keyword": "공간경험",
+      "date": "2025-04-24",
+      "dateFormatted": "2025년 4월 24일",
+      "excerpt": "SM의 물리적 공간 전략과 팬 경험 설계",
+      "readTime": "8분 읽기",
+      "featured": false,
+      "published": true,
+      "slug": "smtown-artium",
+      "path": "articles/smtown-artium.html",
+      "tags": ["SM Entertainment", "아티움", "공간", "팬 경험"],
+      "author": "덕질러",
+      "metaDescription": "SM의 물리적 공간 전략과 팬 경험 설계",
+      "socialImage": "assets/images/covers/smtown-artium.jpg"
+    },
+    {
+      "id": "smtown-concert-merchandise",
+      "title": "225억 공연 + 512억 굿즈, '같이' 팔아서 더 크게 만든 SM타운 효과",
+      "category": "SM Entertainment",
+      "categorySlug": "sm-entertainment",
+      "keyword": "수익모델",
+      "date": "2025-04-23",
+      "dateFormatted": "2025년 4월 23일",
+      "excerpt": "SMTOWN의 통합 수익 모델과 팬 경험 분석",
+      "readTime": "7분 읽기",
+      "featured": false,
+      "published": true,
+      "slug": "smtown-concert-merchandise",
+      "path": "articles/smtown-concert-merchandise.html",
+      "tags": ["SM Entertainment", "SMTOWN", "수익", "굿즈"],
+      "author": "덕질러",
+      "metaDescription": "SMTOWN의 통합 수익 모델과 팬 경험 분석",
+      "socialImage": "assets/images/covers/smtown-concert-merchandise.jpg"
+    },
+    {
+      "id": "smtown-strategy",
+      "title": "그룹이 아니라 회사를 덕질하게 만든 전략, 'SMTOWN'",
+      "category": "SM Entertainment",
+      "categorySlug": "sm-entertainment",
+      "keyword": "브랜드전략",
+      "date": "2025-04-22",
+      "dateFormatted": "2025년 4월 22일",
+      "excerpt": "SM이 회사 차원의 팬덤을 구축한 SMTOWN 브랜딩 전략",
+      "readTime": "8분 읽기",
+      "featured": false,
+      "published": true,
+      "slug": "smtown-strategy",
+      "path": "articles/smtown-strategy.html",
+      "tags": ["SM Entertainment", "SMTOWN", "브랜딩", "전략"],
+      "author": "덕질러",
+      "metaDescription": "SM이 회사 차원의 팬덤을 구축한 SMTOWN 브랜딩 전략",
+      "socialImage": "assets/images/covers/smtown-strategy.jpg"
+    },
+    {
+      "id": "emotional-vs-analytical",
+      "title": "정서적 몰입 vs 분석적 해석, 팬은 어디에 머무는가?",
+      "category": "SM Entertainment",
+      "categorySlug": "sm-entertainment",
+      "keyword": "팬몰입분석",
+      "date": "2025-04-17",
+      "dateFormatted": "2025년 4월 17일",
+      "excerpt": "아이돌과 마블 팬덤의 몰입 방식 비교 분석",
+      "readTime": "7분 읽기",
+      "featured": false,
+      "published": true,
+      "slug": "emotional-vs-analytical",
+      "path": "articles/emotional-vs-analytical.html",
+      "tags": ["SM Entertainment", "팬덤", "몰입", "분석"],
+      "author": "덕질러",
+      "metaDescription": "아이돌과 마블 팬덤의 몰입 방식 비교 분석",
+      "socialImage": "assets/images/covers/emotional-vs-analytical.jpg"
+    },
+    {
+      "id": "marvel-27billion-harvest",
+      "title": "10년간 심은 떡밥, 27.9억 달러로 회수되다",
+      "category": "MCU",
+      "categorySlug": "mcu",
+      "keyword": "큰그림",
+      "date": "2025-04-16",
+      "dateFormatted": "2025년 4월 16일",
+      "excerpt": "마블이 페이즈별로 떡밥을 던지며 세계관을 구축한 전략과 27.9억 달러라는 성과 분석",
+      "readTime": "8분 읽기",
+      "featured": true,
+      "published": true,
+      "slug": "marvel-27billion-harvest",
+      "path": "articles/marvel-27billion-harvest.html",
+      "tags": ["MCU", "마블", "장기전략", "떡밥"],
+      "author": "덕질러",
+      "metaDescription": "마블이 페이즈별로 떡밥을 던지며 세계관을 구축한 전략과 27.9억 달러라는 성과 분석",
+      "socialImage": "assets/images/covers/marvel-27billion-harvest.jpg"
+    },
+    {
       "id": "exo-universe",
       "title": "EXO를 해석하라, 세계관이 만든 밀리언셀러",
       "category": "SM Entertainment",
       "categorySlug": "sm-entertainment",
       "keyword": "세계관",
-      "date": "2025-05-20",
-      "dateFormatted": "2025년 5월 20일",
+      "date": "2025-04-14",
+      "dateFormatted": "2025년 4월 14일",
       "excerpt": "브랜드 세계관 구축이 고객 충성도와 매출에 미치는 영향",
       "readTime": "6분 읽기",
       "featured": true,
@@ -56,6 +322,234 @@
       "author": "덕질러",
       "metaDescription": "브랜드 세계관 구축이 고객 충성도와 매출에 미치는 영향",
       "socialImage": "assets/images/covers/exo-universe.jpg"
+    },
+    {
+      "id": "world-view-ip-25x",
+      "title": "세계관 하나로 2차 IP 매출 2.5배",
+      "category": "SM Entertainment",
+      "categorySlug": "sm-entertainment",
+      "keyword": "세계관마케팅",
+      "date": "2025-04-10",
+      "dateFormatted": "2025년 4월 10일",
+      "excerpt": "아이돌 세계관이 브랜드 자산이 되어 IP 매출을 늘린 전략 분석",
+      "readTime": "6분 읽기",
+      "featured": false,
+      "published": true,
+      "slug": "world-view-ip-25x",
+      "path": "articles/world-view-ip-25x.html",
+      "tags": ["SM Entertainment", "세계관", "IP", "매출"],
+      "author": "덕질러",
+      "metaDescription": "아이돌 세계관이 브랜드 자산이 되어 IP 매출을 늘린 전략 분석",
+      "socialImage": "assets/images/covers/world-view-ip-25x.jpg"
+    },
+    {
+      "id": "nct-4500-million",
+      "title": "따로 또 같이, 4500만 장을 판 팀 'NCT'",
+      "category": "SM Entertainment",
+      "categorySlug": "sm-entertainment",
+      "keyword": "NCT유닛전략",
+      "date": "2025-04-08",
+      "dateFormatted": "2025년 4월 8일",
+      "excerpt": "NCT의 무한 확장형 그룹 전략과 브랜드형 아이돌 체제 분석",
+      "readTime": "7분 읽기",
+      "featured": false,
+      "published": true,
+      "slug": "nct-4500-million",
+      "path": "articles/nct-4500-million.html",
+      "tags": ["SM Entertainment", "NCT", "유닛", "전략"],
+      "author": "덕질러",
+      "metaDescription": "NCT의 무한 확장형 그룹 전략과 브랜드형 아이돌 체제 분석",
+      "socialImage": "assets/images/covers/nct-4500-million.jpg"
+    },
+    {
+      "id": "sm-big-picture",
+      "title": "앨범은 덤, SM의 '큰 그림 전략'",
+      "category": "SM Entertainment",
+      "categorySlug": "sm-entertainment",
+      "keyword": "큰그림",
+      "date": "2025-04-09",
+      "dateFormatted": "2025년 4월 9일",
+      "excerpt": "왜 SM은 '큰 그림'을 먼저 그리고, 앨범은 그 위에 덧칠하는가 – 팬덤 비즈니스에서 비주얼 디렉팅 전략의 힘",
+      "readTime": "10분 읽기",
+      "featured": true,
+      "published": true,
+      "slug": "sm-big-picture",
+      "path": "articles/sm-big-picture.html",
+      "tags": ["SM Entertainment", "비주얼", "디렉팅", "전략"],
+      "author": "덕질러",
+      "metaDescription": "왜 SM은 '큰 그림'을 먼저 그리고, 앨범은 그 위에 덧칠하는가 – 팬덤 비즈니스에서 비주얼 디렉팅 전략의 힘",
+      "socialImage": "assets/images/covers/sm-big-picture.jpg"
+    },
+    {
+      "id": "fan-waiting",
+      "title": "팬은 기다림도 소비한다",
+      "category": "SM Entertainment",
+      "categorySlug": "sm-entertainment",
+      "keyword": "몰입설계",
+      "date": "2025-04-01",
+      "dateFormatted": "2025년 4월 1일",
+      "excerpt": "SM의 티저 전략을 통해 본 고객 기대감 관리와 마케팅 타이밍의 중요성",
+      "readTime": "5분 읽기",
+      "featured": true,
+      "published": true,
+      "slug": "fan-waiting",
+      "path": "articles/fan-waiting.html",
+      "tags": ["SM Entertainment", "마케팅", "팬덤", "경험 디자인"],
+      "author": "덕질러",
+      "metaDescription": "SM의 티저 전략을 통해 본 고객 기대감 관리와 마케팅 타이밍의 중요성",
+      "socialImage": "assets/images/covers/fan-waiting.jpg"
+    },
+    {
+      "id": "physical-album-emotion",
+      "title": "실물 앨범, 이제 '기능'이 아닌 '감정'을 판다",
+      "category": "SM Entertainment",
+      "categorySlug": "sm-entertainment",
+      "keyword": "굿즈전략",
+      "date": "2025-04-02",
+      "dateFormatted": "2025년 4월 2일",
+      "excerpt": "SM의 혁신적 앨범 디자인 전략과 감정적 가치 창출",
+      "readTime": "6분 읽기",
+      "featured": false,
+      "published": true,
+      "slug": "physical-album-emotion",
+      "path": "articles/physical-album-emotion.html",
+      "tags": ["SM Entertainment", "앨범", "디자인", "감정"],
+      "author": "덕질러",
+      "metaDescription": "SM의 혁신적 앨범 디자인 전략과 감정적 가치 창출",
+      "socialImage": "assets/images/covers/physical-album-emotion.jpg"
+    },
+    {
+      "id": "doll-6billion",
+      "title": "조그만 인형, 63억 원어치가 팔린 이유",
+      "category": "SM Entertainment",
+      "categorySlug": "sm-entertainment",
+      "keyword": "캐릭터상품",
+      "date": "2025-04-03",
+      "dateFormatted": "2025년 4월 3일",
+      "excerpt": "라이즈 캐릭터 인형의 성공 전략과 굿즈 마케팅",
+      "readTime": "7분 읽기",
+      "featured": false,
+      "published": true,
+      "slug": "doll-6billion",
+      "path": "articles/doll-6billion.html",
+      "tags": ["SM Entertainment", "굿즈", "캐릭터", "라이즈"],
+      "author": "덕질러",
+      "metaDescription": "라이즈 캐릭터 인형의 성공 전략과 굿즈 마케팅",
+      "socialImage": "assets/images/covers/doll-6billion.jpg"
+    },
+    {
+      "id": "photo-3million-won",
+      "title": "사진 한 장에 300만 원?",
+      "category": "SM Entertainment",
+      "categorySlug": "sm-entertainment",
+      "keyword": "포토카드경제",
+      "date": "2025-03-27",
+      "dateFormatted": "2025년 3월 27일",
+      "excerpt": "포토카드 경제학과 굿즈 시장의 가치 창출 메커니즘",
+      "readTime": "5분 읽기",
+      "featured": false,
+      "published": true,
+      "slug": "photo-3million-won",
+      "path": "articles/photo-3million-won.html",
+      "tags": ["SM Entertainment", "포토카드", "굿즈", "경제학"],
+      "author": "덕질러",
+      "metaDescription": "포토카드 경제학과 굿즈 시장의 가치 창출 메커니즘",
+      "socialImage": "assets/images/covers/photo-3million-won.jpg"
+    },
+    {
+      "id": "communication-billion-users-2",
+      "title": "'우리끼리만의 소통'으로 1억 유저 모으기 (2)",
+      "category": "SM Entertainment",
+      "categorySlug": "sm-entertainment",
+      "keyword": "플랫폼전략",
+      "date": "2025-03-25",
+      "dateFormatted": "2025년 3월 25일",
+      "excerpt": "UFO타운, 버블, 위버스 플랫폼 비교 분석과 독점적 소통의 가치",
+      "readTime": "8분 읽기",
+      "featured": false,
+      "published": true,
+      "slug": "communication-billion-users-2",
+      "path": "articles/communication-billion-users-2.html",
+      "tags": ["SM Entertainment", "플랫폼", "소통", "독점성"],
+      "author": "덕질러",
+      "metaDescription": "UFO타운, 버블, 위버스 플랫폼 비교 분석과 독점적 소통의 가치",
+      "socialImage": "assets/images/covers/communication-billion-users-2.jpg"
+    },
+    {
+      "id": "communication-billion-users-1",
+      "title": "'우리끼리만의 소통'으로 1억 유저 모으기 (1)",
+      "category": "SM Entertainment",
+      "categorySlug": "sm-entertainment",
+      "keyword": "독점성",
+      "date": "2025-03-26",
+      "dateFormatted": "2025년 3월 26일",
+      "excerpt": "독점성을 통한 팬덤 소통 전략과 플랫폼 생태계 구축",
+      "readTime": "7분 읽기",
+      "featured": false,
+      "published": true,
+      "slug": "communication-billion-users-1",
+      "path": "articles/communication-billion-users-1.html",
+      "tags": ["SM Entertainment", "소통", "독점성", "플랫폼"],
+      "author": "덕질러",
+      "metaDescription": "독점성을 통한 팬덤 소통 전략과 플랫폼 생태계 구축",
+      "socialImage": "assets/images/covers/communication-billion-users-1.jpg"
+    },
+    {
+      "id": "fandom-stability-3",
+      "title": "팬덤은 안정적인 덕질을 원한다 (3) - 성공한 확장 전략",
+      "category": "SM Entertainment",
+      "categorySlug": "sm-entertainment",
+      "keyword": "안정성",
+      "date": "2025-03-19",
+      "dateFormatted": "2025년 3월 19일",
+      "excerpt": "팬덤이 확장을 긍정적으로 받아들인 성공 사례와 전략적 시사점",
+      "readTime": "6분 읽기",
+      "featured": false,
+      "published": true,
+      "slug": "fandom-stability-3",
+      "path": "articles/fandom-stability-3.html",
+      "tags": ["SM Entertainment", "팬덤", "확장", "성공사례"],
+      "author": "덕질러",
+      "metaDescription": "팬덤이 확장을 긍정적으로 받아들인 성공 사례와 전략적 시사점",
+      "socialImage": "assets/images/covers/fandom-stability-3.jpg"
+    },
+    {
+      "id": "fandom-stability-2",
+      "title": "팬덤은 안정적인 덕질을 원한다 (2) - 실패한 확장 전략",
+      "category": "SM Entertainment",
+      "categorySlug": "sm-entertainment",
+      "keyword": "안정성",
+      "date": "2025-03-20",
+      "dateFormatted": "2025년 3월 20일",
+      "excerpt": "멤버 확장을 시도했지만 팬덤의 거센 반발로 실패한 사례 분석",
+      "readTime": "7분 읽기",
+      "featured": false,
+      "published": true,
+      "slug": "fandom-stability-2",
+      "path": "articles/fandom-stability-2.html",
+      "tags": ["SM Entertainment", "팬덤", "확장", "실패사례"],
+      "author": "덕질러",
+      "metaDescription": "멤버 확장을 시도했지만 팬덤의 거센 반발로 실패한 사례 분석",
+      "socialImage": "assets/images/covers/fandom-stability-2.jpg"
+    },
+    {
+      "id": "fandom-stability-1",
+      "title": "팬덤은 안정적인 덕질을 원한다 (1)",
+      "category": "SM Entertainment",
+      "categorySlug": "sm-entertainment",
+      "keyword": "안정성",
+      "date": "2025-03-18",
+      "dateFormatted": "2025년 3월 18일",
+      "excerpt": "K-POP 팬덤 비즈니스의 핵심은 '예측 가능한 팀 체제'에서 형성되는 '멤버 간의 관계성'",
+      "readTime": "8분 읽기",
+      "featured": true,
+      "published": true,
+      "slug": "fandom-stability-1",
+      "path": "articles/fandom-stability-1.html",
+      "tags": ["SM Entertainment", "팬덤", "안정성", "관계성"],
+      "author": "덕질러",
+      "metaDescription": "K-POP 팬덤 비즈니스의 핵심은 '예측 가능한 팀 체제'에서 형성되는 '멤버 간의 관계성'",
+      "socialImage": "assets/images/covers/fandom-stability-1.jpg"
     }
   ],
   "categories": [
@@ -65,38 +559,48 @@
       "slug": "sm-entertainment",
       "description": "K-POP 산업을 이끄는 SM Entertainment의 혁신적인 비즈니스 전략",
       "color": "#ff6b6b",
-      "articleCount": 15,
+      "articleCount": 19,
       "path": "categories/sm-entertainment.html",
       "keywords": [
         {
-          "name": "몰입설계",
-          "description": "팬 경험 디자인과 몰입도 향상 전략",
+          "name": "안정성",
+          "description": "지속 가능한 비즈니스 모델과 리스크 관리",
           "count": 3
         },
         {
-          "name": "세계관",
-          "description": "브랜드 유니버스 구축과 스토리텔링",
-          "count": 4
-        },
-        {
-          "name": "원팀",
-          "description": "조직 운영과 팀워크 시스템",
+          "name": "독점성",
+          "description": "시장 내 고유 포지션 확보 전략",
           "count": 2
-        },
-        {
-          "name": "탈케이팝",
-          "description": "글로벌 확장과 장르 다양화",
-          "count": 3
         },
         {
           "name": "굿즈",
           "description": "상품 기획과 수익 모델 혁신",
+          "count": 3
+        },
+        {
+          "name": "몰입설계",
+          "description": "팬 경험 디자인과 몰입도 향상 전략",
+          "count": 2
+        },
+        {
+          "name": "세계관",
+          "description": "브랜드 유니버스 구축과 스토리텔링",
+          "count": 3
+        },
+        {
+          "name": "공간경험",
+          "description": "현장과 미디어를 연결한 경험 디자인",
           "count": 2
         },
         {
           "name": "인재",
           "description": "아티스트 발굴과 육성 시스템",
           "count": 1
+        },
+        {
+          "name": "브랜드",
+          "description": "기업 브랜딩과 정체성 관리",
+          "count": 2
         }
       ]
     },
@@ -106,27 +610,32 @@
       "slug": "mcu",
       "description": "마블 시네마틱 유니버스의 콘텐츠 전략과 IP 활용",
       "color": "#ed1d24",
-      "articleCount": 10,
+      "articleCount": 6,
       "path": "categories/mcu.html",
       "keywords": [
         {
-          "name": "수익구조",
-          "description": "다각화된 수익 모델과 플랫폼 전략",
-          "count": 3
-        },
-        {
           "name": "큰그림",
           "description": "장기적 비전과 전략적 기획",
-          "count": 4
-        },
-        {
-          "name": "세계관",
-          "description": "연결된 유니버스 구축과 확장",
           "count": 2
         },
         {
-          "name": "메시지",
-          "description": "사회적 메시지와 브랜딩 전략",
+          "name": "세계관전략",
+          "description": "연결된 유니버스 구축과 확장",
+          "count": 1
+        },
+        {
+          "name": "스포일러마케팅",
+          "description": "정보 공개 전략과 팬 관계 관리",
+          "count": 1
+        },
+        {
+          "name": "캐릭터브랜딩",
+          "description": "캐릭터 기반 브랜드 구축 전략",
+          "count": 1
+        },
+        {
+          "name": "수익구조",
+          "description": "다각화된 수익 모델과 플랫폼 전략",
           "count": 1
         }
       ]
@@ -137,22 +646,17 @@
       "slug": "produce101",
       "description": "서바이벌 프로그램의 팬덤 형성과 비즈니스 모델",
       "color": "#4a90e2",
-      "articleCount": 4,
+      "articleCount": 2,
       "path": "categories/produce101.html",
       "keywords": [
         {
-          "name": "공간경험",
-          "description": "현장과 미디어를 연결한 경험 디자인",
-          "count": 2
-        },
-        {
-          "name": "몰입설계",
+          "name": "팬참여형",
           "description": "시청자 참여와 몰입도 향상 전략",
           "count": 1
         },
         {
-          "name": "수익구조",
-          "description": "다채널 수익화와 팬덤 경제",
+          "name": "희소성전략",
+          "description": "한정성을 활용한 가치 창출",
           "count": 1
         }
       ]
@@ -162,86 +666,79 @@
     {
       "name": "안정성",
       "description": "지속 가능한 비즈니스 모델과 리스크 관리",
-      "articles": []
+      "articles": ["fandom-stability-1", "fandom-stability-2", "fandom-stability-3"]
     },
     {
       "name": "독점성",
       "description": "시장 내 고유 포지션 확보 전략",
-      "articles": []
+      "articles": ["communication-billion-users-1", "communication-billion-users-2"]
     },
     {
       "name": "굿즈",
       "description": "상품 기획과 수익 모델 혁신",
-      "articles": []
+      "articles": ["photo-3million-won", "doll-6billion", "physical-album-emotion"]
     },
     {
       "name": "큰그림",
       "description": "장기적 비전과 전략적 기획",
-      "articles": ["netflix-vs-marvel"]
+      "articles": ["sm-big-picture", "marvel-27billion-harvest"]
     },
     {
       "name": "세계관",
       "description": "브랜드 유니버스 구축과 스토리텔링",
-      "articles": ["exo-universe"]
-    },
-    {
-      "name": "원팀",
-      "description": "조직 운영과 팀워크 시스템",
-      "articles": []
+      "articles": ["exo-universe", "world-view-ip-25x", "emotional-vs-analytical"]
     },
     {
       "name": "공간경험",
       "description": "현장과 미디어를 연결한 경험 디자인",
-      "articles": []
+      "articles": ["smtown-artium", "artium-popup"]
     },
     {
       "name": "인재",
       "description": "아티스트 발굴과 육성 시스템",
-      "articles": []
-    },
-    {
-      "name": "탈케이팝",
-      "description": "글로벌 확장과 장르 다양화",
-      "articles": []
+      "articles": ["sm-debut-day-zero"]
     },
     {
       "name": "몰입설계",
       "description": "팬 경험 디자인과 몰입도 향상 전략",
-      "articles": ["fan-waiting"]
-    },
-    {
-      "name": "메시지",
-      "description": "사회적 메시지와 브랜딩 전략",
-      "articles": []
+      "articles": ["fan-waiting", "emotional-vs-analytical"]
     },
     {
       "name": "수익구조",
       "description": "다각화된 수익 모델과 플랫폼 전략",
-      "articles": ["netflix-vs-marvel"]
+      "articles": ["netflix-vs-marvel", "smtown-concert-merchandise"]
+    },
+    {
+      "name": "팬참여형",
+      "description": "시청자 참여와 몰입도 향상 전략",
+      "articles": ["produce-vote-800-billion"]
+    },
+    {
+      "name": "희소성전략",
+      "description": "한정성을 활용한 가치 창출",
+      "articles": ["limited-edition-idol"]
     }
   ],
   "site": {
     "title": "덕질로 배우는 비즈니스",
     "description": "K-POP, 마블, 엔터테인먼트 산업을 통해 배우는 비즈니스 인사이트",
     "url": "https://yhyh6565.github.io/dukjil-website",
-    "author": "덕질러",
-    "email": "contact@dukjil.com",
+    "author": "Yeonhee Do",
+    "email": "yeonheedo1127@gmail.com",
     "social": {
-      "twitter": "",
-      "github": "",
-      "linkedin": ""
+      "linkedin": "https://linkedin.com/in/yeonhee-do-7283801a5"
     },
     "analytics": {
       "googleAnalytics": ""
     },
-    "lastUpdated": "2025-08-17"
+    "lastUpdated": "2025-08-20"
   },
   "meta": {
-    "totalArticles": 3,
-    "publishedArticles": 3,
+    "totalArticles": 29,
+    "publishedArticles": 29,
     "totalCategories": 3,
-    "totalKeywords": 12,
-    "lastGenerated": "2025-08-17T00:00:00Z",
-    "version": "1.0.0"
+    "totalKeywords": 11,
+    "lastGenerated": "2025-08-20T00:00:00Z",
+    "version": "2.0.0"
   }
 }
