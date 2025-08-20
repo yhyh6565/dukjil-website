@@ -25,13 +25,13 @@
                 </button>
                 <ul class="nav-menu">
                     <li class="nav-item">
-                        <a href="categories/sm-entertainment.html" class="nav-link nav-link--sm">SM Entertainment</a>
+                        <a href="#sm-entertainment" class="nav-link nav-link--sm">SM Entertainment</a>
                     </li>
                     <li class="nav-item">
-                        <a href="categories/mcu.html" class="nav-link nav-link--mcu">MCU</a>
+                        <a href="#mcu" class="nav-link nav-link--mcu">MCU</a>
                     </li>
                     <li class="nav-item">
-                        <a href="categories/produce101.html" class="nav-link nav-link--produce">프로듀스 101</a>
+                        <a href="#produce101" class="nav-link nav-link--produce">프로듀스 101</a>
                     </li>
                 </ul>
             </div>
@@ -51,92 +51,105 @@
             </div>
         </section>
 
-        <section class="featured">
+        <!-- Magazine-style Featured Section -->
+        <section class="magazine-featured">
             <div class="container">
-                <h2 class="section-title">인기 글</h2>
-                <div class="featured-articles">
-                    <article class="featured-card">
-                        <div class="featured-card-category category-sm">SM Entertainment</div>
-                        <h3 class="featured-card-title">
-                            <a href="articles/sm-big-picture.html">앨범은 덤, SM의 '큰 그림 전략'</a>
-                        </h3>
-                        <p class="featured-card-excerpt">왜 SM은 '큰 그림'을 먼저 그리고, 앨범은 그 위에 덧칠하는가 – 팬덤 비즈니스에서 비주얼 디렉팅 전략의 힘</p>
-                        <div class="featured-card-meta">
-                            <span class="keyword">큰그림</span>
-                            <span class="read-time">10분 읽기</span>
+                <div class="featured-grid">
+                    <!-- Main Featured Article -->
+                    <article class="featured-main">
+                        <div class="featured-main-image">
+                            <img src="assets/images/covers/sm-big-picture.jpg" alt="SM의 큰 그림 전략" loading="lazy">
+                        </div>
+                        <div class="featured-main-content">
+                            <div class="featured-main-category category-sm">SM Entertainment</div>
+                            <h2 class="featured-main-title">
+                                <a href="articles/sm-big-picture.html">앨범은 덤, SM의 '큰 그림 전략'</a>
+                            </h2>
+                            <p class="featured-main-excerpt">
+                                왜 SM은 '큰 그림'을 먼저 그리고, 앨범은 그 위에 덧칠하는가 – 팬덤 비즈니스에서 비주얼 디렉팅 전략의 힘
+                            </p>
+                            <div class="featured-main-meta">
+                                <span class="keyword">큰그림</span>
+                                <time class="date">2025.04.09</time>
+                                <span class="read-time">10분 읽기</span>
+                            </div>
                         </div>
                     </article>
                     
-                    <article class="featured-card">
-                        <div class="featured-card-category category-sm">SM Entertainment</div>
-                        <h3 class="featured-card-title">
-                            <a href="articles/fan-waiting.html">팬은 기다림도 소비한다</a>
-                        </h3>
-                        <p class="featured-card-excerpt">SM의 티저 전략을 통해 본 고객 기대감 관리와 마케팅 타이밍의 중요성</p>
-                        <div class="featured-card-meta">
-                            <span class="keyword">몰입설계</span>
-                            <span class="read-time">5분 읽기</span>
-                        </div>
-                    </article>
-                    
-                    <article class="featured-card">
-                        <div class="featured-card-category category-mcu">MCU</div>
-                        <h3 class="featured-card-title">
-                            <a href="articles/netflix-vs-marvel.html">한 방을 노리는 넷플릭스, 꾸준히 회수하는 마블</a>
-                        </h3>
-                        <p class="featured-card-excerpt">플랫폼별 콘텐츠 전략의 차이점과 수익 모델 분석</p>
-                        <div class="featured-card-meta">
-                            <span class="keyword">수익구조</span>
-                            <span class="read-time">7분 읽기</span>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="filter-section">
-            <div class="container">
-                <h2 class="section-title">글 목록</h2>
-                
-                <!-- 카테고리 필터 -->
-                <div class="filter-group">
-                    <h3 class="filter-label">카테고리</h3>
-                    <div class="filter-buttons">
-                        <button class="filter-btn filter-btn--active" data-category="all">전체</button>
-                        <button class="filter-btn filter-btn--sm" data-category="sm-entertainment">SM Entertainment</button>
-                        <button class="filter-btn filter-btn--mcu" data-category="mcu">MCU</button>
-                        <button class="filter-btn filter-btn--produce" data-category="produce101">프로듀스 101</button>
-                    </div>
-                </div>
-                
-                <!-- 키워드 필터 -->
-                <div class="filter-group">
-                    <h3 class="filter-label">키워드</h3>
-                    <div class="filter-buttons">
-                        <button class="filter-btn filter-btn--keyword" data-keyword="all">전체</button>
-                        <button class="filter-btn filter-btn--keyword" data-keyword="큰그림">큰그림</button>
-                        <button class="filter-btn filter-btn--keyword" data-keyword="몰입설계">몰입설계</button>
-                        <button class="filter-btn filter-btn--keyword" data-keyword="세계관">세계관</button>
-                        <button class="filter-btn filter-btn--keyword" data-keyword="세계관마케팅">세계관마케팅</button>
-                        <button class="filter-btn filter-btn--keyword" data-keyword="NCT유닛전략">NCT유닛전략</button>
-                        <button class="filter-btn filter-btn--keyword" data-keyword="수익구조">수익구조</button>
-                        <button class="filter-btn filter-btn--keyword" data-keyword="안정성">안정성</button>
-                        <button class="filter-btn filter-btn--keyword" data-keyword="독점성">독점성</button>
+                    <!-- Secondary Featured Articles -->
+                    <div class="featured-secondary">
+                        <article class="featured-card-small">
+                            <div class="featured-card-category category-mcu">MCU</div>
+                            <h3 class="featured-card-title">
+                                <a href="articles/marvel-27billion-harvest.html">10년간 심은 떡밥, 27.9억 달러로 회수되다</a>
+                            </h3>
+                            <div class="featured-card-meta">
+                                <span class="keyword">큰그림</span>
+                                <span class="read-time">8분 읽기</span>
+                            </div>
+                        </article>
+                        
+                        <article class="featured-card-small">
+                            <div class="featured-card-category category-produce">프로듀스 101</div>
+                            <h3 class="featured-card-title">
+                                <a href="articles/limited-edition-idol.html">11%의 데뷔 확률, 1.5년의 활동 – 다시 없을 '한정판' 아이돌</a>
+                            </h3>
+                            <div class="featured-card-meta">
+                                <span class="keyword">희소성전략</span>
+                                <span class="read-time">8분 읽기</span>
+                            </div>
+                        </article>
+                        
+                        <article class="featured-card-small">
+                            <div class="featured-card-category category-sm">SM Entertainment</div>
+                            <h3 class="featured-card-title">
+                                <a href="articles/fan-waiting.html">팬은 기다림도 소비한다</a>
+                            </h3>
+                            <div class="featured-card-meta">
+                                <span class="keyword">몰입설계</span>
+                                <span class="read-time">5분 읽기</span>
+                            </div>
+                        </article>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="all-articles">
+        <!-- Modern Filter Section -->
+        <section class="magazine-filter">
             <div class="container">
-                <div class="articles-list" id="articles-list">
+                <div class="filter-header">
+                    <h2 class="filter-title">모든 글</h2>
+                    <div class="filter-controls">
+                        <!-- Category Pills -->
+                        <div class="filter-pills">
+                            <button class="filter-pill filter-pill--active" data-category="all">전체</button>
+                            <button class="filter-pill filter-pill--sm" data-category="sm-entertainment">SM Entertainment</button>
+                            <button class="filter-pill filter-pill--mcu" data-category="mcu">MCU</button>
+                            <button class="filter-pill filter-pill--produce" data-category="produce101">프로듀스 101</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Magazine Grid Section -->
+        <section class="magazine-grid">
+            <div class="container">
+                <div class="articles-grid" id="articles-list">
                     <!-- 동적으로 로드될 글 목록 -->
+                    <div class="loading-message">
+                        <p>글을 불러오는 중...</p>
+                    </div>
                 </div>
                 
                 <!-- 필터링 결과가 없을 때 표시 -->
                 <div class="no-results" style="display: none;">
-                    <p>선택한 조건에 맞는 글이 없습니다.</p>
-                    <button class="reset-filters-btn">필터 초기화</button>
+                    <div class="no-results-content">
+                        <h3>선택한 조건에 맞는 글이 없습니다</h3>
+                        <p>다른 카테고리를 선택해보세요</p>
+                        <button class="reset-filters-btn">전체 보기</button>
+                    </div>
                 </div>
             </div>
         </section>

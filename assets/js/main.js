@@ -628,7 +628,7 @@ function loadFallbackArticles() {
 }
 
 /**
- * Render Articles List
+ * Render Articles List (Magazine Grid Style)
  */
 function renderArticles(articles) {
     const articlesList = document.getElementById('articles-list');
@@ -637,18 +637,30 @@ function renderArticles(articles) {
     // Sort articles by date (newest first)
     const sortedArticles = articles.sort((a, b) => new Date(b.date) - new Date(a.date));
     
-    const articlesHTML = sortedArticles.map(article => {
+    const articlesHTML = sortedArticles.map((article, index) => {
         const categoryClass = getCategoryClass(article.categorySlug);
+        // Add variety to grid layout
+        const cardSize = (index === 0 || index % 7 === 0) ? 'featured' : 'standard';
+        
         return `
-            <article class="article-item" data-category="${article.categorySlug}" data-keyword="${article.keyword}">
-                <div class="article-item-category ${categoryClass}">${article.category}</div>
-                <h3 class="article-item-title">
-                    <a href="${article.path}">${article.title}</a>
-                </h3>
-                <p class="article-item-excerpt">${article.excerpt}</p>
-                <div class="article-item-meta">
-                    <span class="keyword">${article.keyword}</span>
-                    <time class="date">${formatDate(article.date)}</time>
+            <article class="magazine-card magazine-card--${cardSize}" data-category="${article.categorySlug}" data-keyword="${article.keyword}">
+                <div class="magazine-card-image">
+                    <img src="assets/images/covers/${article.id}.jpg" 
+                         alt="${article.title}" 
+                         loading="lazy"
+                         onerror="this.src='assets/images/covers/default.jpg'">
+                </div>
+                <div class="magazine-card-content">
+                    <div class="magazine-card-category ${categoryClass}">${article.category}</div>
+                    <h3 class="magazine-card-title">
+                        <a href="${article.path}">${article.title}</a>
+                    </h3>
+                    <p class="magazine-card-excerpt">${article.excerpt}</p>
+                    <div class="magazine-card-meta">
+                        <span class="keyword">${article.keyword}</span>
+                        <time class="date">${formatDate(article.date)}</time>
+                        <span class="read-time">${article.readTime || '5분 읽기'}</span>
+                    </div>
                 </div>
             </article>
         `;
@@ -696,19 +708,17 @@ function formatDate(dateString) {
 }
 
 /**
- * Filter System (Notion Database Style)
+ * Filter System (Magazine Style)
  */
 function initFilterSystem() {
     const categoryButtons = document.querySelectorAll('[data-category]');
-    const keywordButtons = document.querySelectorAll('[data-keyword]');
-    const articles = document.querySelectorAll('.article-item');
+    const articles = document.querySelectorAll('.magazine-card');
     const noResults = document.querySelector('.no-results');
     const resetButton = document.querySelector('.reset-filters-btn');
     
     if (!categoryButtons.length || !articles.length) return;
     
     let currentCategory = 'all';
-    let currentKeyword = 'all';
     
     // Handle browser back/forward navigation
     window.addEventListener('popstate', function(event) {
@@ -751,25 +761,14 @@ function initFilterSystem() {
         button.addEventListener('click', function() {
             const category = this.getAttribute('data-category');
             
-            // Update active state
-            categoryButtons.forEach(btn => btn.classList.remove('filter-btn--active'));
-            this.classList.add('filter-btn--active');
+            // Update active state for magazine pills
+            categoryButtons.forEach(btn => {
+                btn.classList.remove('filter-pill--active');
+                btn.classList.remove('filter-btn--active');
+            });
+            this.classList.add('filter-pill--active');
             
             currentCategory = category;
-            applyFilters();
-        });
-    });
-    
-    // Keyword filter
-    keywordButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const keyword = this.getAttribute('data-keyword');
-            
-            // Update active state
-            keywordButtons.forEach(btn => btn.classList.remove('filter-btn--active'));
-            this.classList.add('filter-btn--active');
-            
-            currentKeyword = keyword;
             applyFilters();
         });
     });
@@ -777,18 +776,16 @@ function initFilterSystem() {
     // Reset filters function
     function resetFilters() {
         currentCategory = 'all';
-        currentKeyword = 'all';
         
         // Reset button states
-        categoryButtons.forEach(btn => btn.classList.remove('filter-btn--active'));
-        keywordButtons.forEach(btn => btn.classList.remove('filter-btn--active'));
+        categoryButtons.forEach(btn => {
+            btn.classList.remove('filter-pill--active');
+            btn.classList.remove('filter-btn--active');
+        });
         
-        // Set "전체" buttons as active
+        // Set "전체" button as active
         const allCategoryBtn = document.querySelector('[data-category="all"]');
-        const allKeywordBtn = document.querySelector('[data-keyword="all"]');
-        
-        if (allCategoryBtn) allCategoryBtn.classList.add('filter-btn--active');
-        if (allKeywordBtn) allKeywordBtn.classList.add('filter-btn--active');
+        if (allCategoryBtn) allCategoryBtn.classList.add('filter-pill--active');
         
         applyFilters();
     }
@@ -803,12 +800,10 @@ function initFilterSystem() {
         
         articles.forEach(article => {
             const articleCategory = article.getAttribute('data-category');
-            const articleKeyword = article.getAttribute('data-keyword');
             
             const categoryMatch = currentCategory === 'all' || articleCategory === currentCategory;
-            const keywordMatch = currentKeyword === 'all' || articleKeyword === currentKeyword;
             
-            if (categoryMatch && keywordMatch) {
+            if (categoryMatch) {
                 article.classList.remove('hidden');
                 visibleCount++;
             } else {
@@ -829,7 +824,7 @@ function initFilterSystem() {
         if (typeof gtag !== 'undefined') {
             gtag('event', 'filter_applied', {
                 event_category: 'Article Filter',
-                event_label: `${currentCategory}_${currentKeyword}`,
+                event_label: `${currentCategory}`,
                 value: visibleCount
             });
         }
