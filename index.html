@@ -115,18 +115,35 @@
             </div>
         </section>
 
-        <!-- Modern Filter Section -->
+        <!-- Enhanced Filter Section -->
         <section class="magazine-filter">
             <div class="container">
                 <div class="filter-header">
                     <h2 class="filter-title">모든 글</h2>
                     <div class="filter-controls">
                         <!-- Category Pills -->
-                        <div class="filter-pills">
-                            <button class="filter-pill filter-pill--active" data-category="all">전체</button>
-                            <button class="filter-pill filter-pill--sm" data-category="sm-entertainment">SM Entertainment</button>
-                            <button class="filter-pill filter-pill--mcu" data-category="mcu">MCU</button>
-                            <button class="filter-pill filter-pill--produce" data-category="produce101">프로듀스 101</button>
+                        <div class="filter-group">
+                            <h3 class="filter-group-title">카테고리</h3>
+                            <div class="filter-pills">
+                                <button class="filter-pill filter-pill--active" data-category="all">전체 <span class="pill-count" id="count-all"></span></button>
+                                <button class="filter-pill filter-pill--sm" data-category="sm-entertainment">SM Entertainment <span class="pill-count" id="count-sm"></span></button>
+                                <button class="filter-pill filter-pill--mcu" data-category="mcu">MCU <span class="pill-count" id="count-mcu"></span></button>
+                                <button class="filter-pill filter-pill--produce" data-category="produce101">프로듀스 101 <span class="pill-count" id="count-produce"></span></button>
+                            </div>
+                        </div>
+                        
+                        <!-- Tag Pills -->
+                        <div class="filter-group">
+                            <h3 class="filter-group-title">태그</h3>
+                            <div class="filter-pills" id="tag-pills">
+                                <!-- Tags will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <!-- Search and Clear -->
+                        <div class="filter-actions">
+                            <input type="text" class="filter-search" id="tag-search" placeholder="태그 검색...">
+                            <button class="filter-clear" id="clear-filters">필터 초기화</button>
                         </div>
                     </div>
                 </div>

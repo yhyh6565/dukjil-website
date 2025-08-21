@@ -147,6 +147,36 @@
     font-size: var(--font-size-lg);
   }
 
+  /* Enhanced Filter Section - Mobile */
+  .filter-controls {
+    gap: var(--spacing-md);
+  }
+  
+  .filter-group {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .filter-pills {
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+  }
+  
+  .filter-pill {
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+  
+  .filter-actions {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    align-items: stretch;
+  }
+  
+  .filter-search {
+    order: -1;
+    margin-bottom: var(--spacing-sm);
+  }
+  
   /* Category Hero */
   .category-hero {
     padding: var(--spacing-2xl) 0;
