@@ -137,10 +137,384 @@
         <section class="magazine-grid">
             <div class="container">
                 <div class="articles-grid" id="articles-list">
-                    <!-- 동적으로 로드될 글 목록 -->
-                    <div class="loading-message">
-                        <p>글을 불러오는 중...</p>
-                    </div>
+                    <!-- 정적 글 목록 (JavaScript 실패시 대비) -->
+                    <article class="magazine-card magazine-card--featured" data-category="produce101" data-keyword="희소성전략">
+                        <div class="magazine-card-image">
+                            <img src="assets/images/covers/limited-edition-idol.jpg" alt="11%의 데뷔 확률, 1.5년의 활동" loading="lazy" onerror="this.src='assets/images/covers/default.jpg'">
+                        </div>
+                        <div class="magazine-card-content">
+                            <div class="magazine-card-category category-produce">프로듀스 101</div>
+                            <h3 class="magazine-card-title">
+                                <a href="articles/limited-edition-idol.html">11%의 데뷔 확률, 1.5년의 활동 – 다시 없을 '한정판' 아이돌</a>
+                            </h3>
+                            <p class="magazine-card-excerpt">Wanna One을 통해 본 한정판 아이돌의 희소성 마케팅 전략</p>
+                            <div class="magazine-card-meta">
+                                <span class="keyword">희소성전략</span>
+                                <time class="date">2025.05.22</time>
+                                <span class="read-time">8분 읽기</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="magazine-card" data-category="produce101" data-keyword="팬참여형">
+                        <div class="magazine-card-image">
+                            <img src="assets/images/covers/produce-vote-800-billion.jpg" alt="1,200만 표로 완성된 800억" loading="lazy" onerror="this.src='assets/images/covers/default.jpg'">
+                        </div>
+                        <div class="magazine-card-content">
+                            <div class="magazine-card-category category-produce">프로듀스 101</div>
+                            <h3 class="magazine-card-title">
+                                <a href="articles/produce-vote-800-billion.html">1,200만 표로 완성된 800억 – "당신의 소년에게 투표하세요"</a>
+                            </h3>
+                            <p class="magazine-card-excerpt">프로듀스 101 시즌2를 통해 본 팬 참여형 콘텐츠 제작의 성공 전략</p>
+                            <div class="magazine-card-meta">
+                                <span class="keyword">팬참여형</span>
+                                <time class="date">2025.05.21</time>
+                                <span class="read-time">9분 읽기</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="magazine-card" data-category="mcu" data-keyword="수익구조">
+                        <div class="magazine-card-image">
+                            <img src="assets/images/covers/netflix-vs-marvel.jpg" alt="한 방을 노리는 넷플릭스, 꾸준히 회수하는 마블" loading="lazy" onerror="this.src='assets/images/covers/default.jpg'">
+                        </div>
+                        <div class="magazine-card-content">
+                            <div class="magazine-card-category category-mcu">MCU</div>
+                            <h3 class="magazine-card-title">
+                                <a href="articles/netflix-vs-marvel.html">한 방을 노리는 넷플릭스, 꾸준히 회수하는 마블</a>
+                            </h3>
+                            <p class="magazine-card-excerpt">플랫폼별 콘텐츠 전략의 차이점과 수익 모델 분석</p>
+                            <div class="magazine-card-meta">
+                                <span class="keyword">수익구조</span>
+                                <time class="date">2025.05.20</time>
+                                <span class="read-time">7분 읽기</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="magazine-card" data-category="mcu" data-keyword="썬더볼츠">
+                        <div class="magazine-card-image">
+                            <img src="assets/images/covers/thunderbolts-together.jpg" alt="왜 우리는 더 이상 혼자일 수 없는가" loading="lazy" onerror="this.src='assets/images/covers/default.jpg'">
+                        </div>
+                        <div class="magazine-card-content">
+                            <div class="magazine-card-category category-mcu">MCU</div>
+                            <h3 class="magazine-card-title">
+                                <a href="articles/thunderbolts-together.html">왜 우리는 더 이상 혼자일 수 없는가 - 썬더볼츠(2025)</a>
+                            </h3>
+                            <p class="magazine-card-excerpt">마블이 썬더볼츠를 통해 전달하려는 고립과 연대의 메시지</p>
+                            <div class="magazine-card-meta">
+                                <span class="keyword">썬더볼츠</span>
+                                <time class="date">2025.05.15</time>
+                                <span class="read-time">6분 읽기</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="magazine-card" data-category="mcu" data-keyword="캐릭터브랜딩">
+                        <div class="magazine-card-image">
+                            <img src="assets/images/covers/marvel-15-years-message.jpg" alt="15년 동안 마블이 만들어온 메시지" loading="lazy" onerror="this.src='assets/images/covers/default.jpg'">
+                        </div>
+                        <div class="magazine-card-content">
+                            <div class="magazine-card-category category-mcu">MCU</div>
+                            <h3 class="magazine-card-title">
+                                <a href="articles/marvel-15-years-message.html">너는 무엇을 위해 함께할 수 있는가, 15년 동안 마블이 만들어온 메시지</a>
+                            </h3>
+                            <p class="magazine-card-excerpt">15년간 마블이 구축한 캐릭터 기반 브랜딩 전략과 메시지</p>
+                            <div class="magazine-card-meta">
+                                <span class="keyword">캐릭터브랜딩</span>
+                                <time class="date">2025.05.14</time>
+                                <span class="read-time">7분 읽기</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="magazine-card" data-category="mcu" data-keyword="스포일러마케팅">
+                        <div class="magazine-card-image">
+                            <img src="assets/images/covers/spoiler-free-2-8b.jpg" alt="오늘부터 스포일러 금지" loading="lazy" onerror="this.src='assets/images/covers/default.jpg'">
+                        </div>
+                        <div class="magazine-card-content">
+                            <div class="magazine-card-category category-mcu">MCU</div>
+                            <h3 class="magazine-card-title">
+                                <a href="articles/spoiler-free-2-8b.html">오늘부터 스포일러 금지, $2.8B 매출을 안겨준 팬들과의 약속</a>
+                            </h3>
+                            <p class="magazine-card-excerpt">마블의 스포일러 방지 캠페인이 28억 달러 매출에 미친 영향</p>
+                            <div class="magazine-card-meta">
+                                <span class="keyword">스포일러마케팅</span>
+                                <time class="date">2025.05.13</time>
+                                <span class="read-time">6분 읽기</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="magazine-card magazine-card--featured" data-category="mcu" data-keyword="세계관전략">
+                        <div class="magazine-card-image">
+                            <img src="assets/images/covers/marvel-saga-dc-chronicle.jpg" alt="Saga로 엮은 마블, Chronicle로 남긴 DC" loading="lazy" onerror="this.src='assets/images/covers/default.jpg'">
+                        </div>
+                        <div class="magazine-card-content">
+                            <div class="magazine-card-category category-mcu">MCU</div>
+                            <h3 class="magazine-card-title">
+                                <a href="articles/marvel-saga-dc-chronicle.html">Saga로 엮은 마블, Chronicle로 남긴 DC</a>
+                            </h3>
+                            <p class="magazine-card-excerpt">MCU의 연결된 유니버스 vs DC의 독립형 접근법 비교 분석</p>
+                            <div class="magazine-card-meta">
+                                <span class="keyword">세계관전략</span>
+                                <time class="date">2025.05.07</time>
+                                <span class="read-time">8분 읽기</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="magazine-card" data-category="sm-entertainment" data-keyword="산업위기">
+                        <div class="magazine-card-image">
+                            <img src="assets/images/covers/escape-kpop-intelligence.jpg" alt="탈(脫)K-POP은 지능 순이라는 자조" loading="lazy" onerror="this.src='assets/images/covers/default.jpg'">
+                        </div>
+                        <div class="magazine-card-content">
+                            <div class="magazine-card-category category-sm">SM Entertainment</div>
+                            <h3 class="magazine-card-title">
+                                <a href="articles/escape-kpop-intelligence.html">'탈(脫)K-POP은 지능 순'이라는 자조, 그 구조엔 이유가 있다</a>
+                            </h3>
+                            <p class="magazine-card-excerpt">K-POP 산업의 구조적 위기와 팬 피로감 분석</p>
+                            <div class="magazine-card-meta">
+                                <span class="keyword">산업위기</span>
+                                <time class="date">2025.05.06</time>
+                                <span class="read-time">7분 읽기</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="magazine-card" data-category="sm-entertainment" data-keyword="브랜드감각">
+                        <div class="magazine-card-image">
+                            <img src="assets/images/covers/sm-quality-guarantee.jpg" alt="SM깔이라는 100점짜리 품질보증서" loading="lazy" onerror="this.src='assets/images/covers/default.jpg'">
+                        </div>
+                        <div class="magazine-card-content">
+                            <div class="magazine-card-category category-sm">SM Entertainment</div>
+                            <h3 class="magazine-card-title">
+                                <a href="articles/sm-quality-guarantee.html">'SM깔'이라는 100점짜리 품질보증서</a>
+                            </h3>
+                            <p class="magazine-card-excerpt">SM의 브랜드 정체성이 개인의 감각에서 시스템적 관리로 진화한 과정</p>
+                            <div class="magazine-card-meta">
+                                <span class="keyword">브랜드감각</span>
+                                <time class="date">2025.05.01</time>
+                                <span class="read-time">6분 읽기</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="magazine-card" data-category="sm-entertainment" data-keyword="인재선점">
+                        <div class="magazine-card-image">
+                            <img src="assets/images/covers/sm-debut-day-zero.jpg" alt="콘텐츠 없이 데뷔 0일 차에 팬덤 보유" loading="lazy" onerror="this.src='assets/images/covers/default.jpg'">
+                        </div>
+                        <div class="magazine-card-content">
+                            <div class="magazine-card-category category-sm">SM Entertainment</div>
+                            <h3 class="magazine-card-title">
+                                <a href="articles/sm-debut-day-zero.html">'콘텐츠 없이' 데뷔 0일 차에 팬덤 보유</a>
+                            </h3>
+                            <p class="magazine-card-excerpt">SM Rookies 시스템을 통한 전략적 인재 확보와 사전 팬덤 구축</p>
+                            <div class="magazine-card-meta">
+                                <span class="keyword">인재선점</span>
+                                <time class="date">2025.04.30</time>
+                                <span class="read-time">7분 읽기</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="magazine-card" data-category="sm-entertainment" data-keyword="공간전략">
+                        <div class="magazine-card-image">
+                            <img src="assets/images/covers/artium-popup.jpg" alt="수백만이 다녀갔지만 적자였던 아티움" loading="lazy" onerror="this.src='assets/images/covers/default.jpg'">
+                        </div>
+                        <div class="magazine-card-content">
+                            <div class="magazine-card-category category-sm">SM Entertainment</div>
+                            <h3 class="magazine-card-title">
+                                <a href="articles/artium-popup.html">수백만이 다녀갔지만 적자였던 아티움, 짧게 열고 다 팔아버린 팝업</a>
+                            </h3>
+                            <p class="magazine-card-excerpt">상설 공간에서 팝업 전략으로의 전환과 그 성과</p>
+                            <div class="magazine-card-meta">
+                                <span class="keyword">공간전략</span>
+                                <time class="date">2025.04.29</time>
+                                <span class="read-time">6분 읽기</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="magazine-card" data-category="sm-entertainment" data-keyword="공간경험">
+                        <div class="magazine-card-image">
+                            <img src="assets/images/covers/smtown-artium.jpg" alt="연간 수백만이 찾은 도심 속 K-POP 테마파크" loading="lazy" onerror="this.src='assets/images/covers/default.jpg'">
+                        </div>
+                        <div class="magazine-card-content">
+                            <div class="magazine-card-category category-sm">SM Entertainment</div>
+                            <h3 class="magazine-card-title">
+                                <a href="articles/smtown-artium.html">연간 수백만이 찾은 도심 속 K-POP 테마파크, SMTOWN 아티움</a>
+                            </h3>
+                            <p class="magazine-card-excerpt">SM의 물리적 공간 전략과 팬 경험 설계</p>
+                            <div class="magazine-card-meta">
+                                <span class="keyword">공간경험</span>
+                                <time class="date">2025.04.24</time>
+                                <span class="read-time">8분 읽기</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="magazine-card" data-category="sm-entertainment" data-keyword="수익모델">
+                        <div class="magazine-card-image">
+                            <img src="assets/images/covers/smtown-concert-merchandise.jpg" alt="225억 공연 + 512억 굿즈" loading="lazy" onerror="this.src='assets/images/covers/default.jpg'">
+                        </div>
+                        <div class="magazine-card-content">
+                            <div class="magazine-card-category category-sm">SM Entertainment</div>
+                            <h3 class="magazine-card-title">
+                                <a href="articles/smtown-concert-merchandise.html">225억 공연 + 512억 굿즈, '같이' 팔아서 더 크게 만든 SM타운 효과</a>
+                            </h3>
+                            <p class="magazine-card-excerpt">SMTOWN의 통합 수익 모델과 팬 경험 분석</p>
+                            <div class="magazine-card-meta">
+                                <span class="keyword">수익모델</span>
+                                <time class="date">2025.04.23</time>
+                                <span class="read-time">7분 읽기</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="magazine-card magazine-card--featured" data-category="sm-entertainment" data-keyword="브랜드전략">
+                        <div class="magazine-card-image">
+                            <img src="assets/images/covers/smtown-strategy.jpg" alt="그룹이 아니라 회사를 덕질하게 만든 전략" loading="lazy" onerror="this.src='assets/images/covers/default.jpg'">
+                        </div>
+                        <div class="magazine-card-content">
+                            <div class="magazine-card-category category-sm">SM Entertainment</div>
+                            <h3 class="magazine-card-title">
+                                <a href="articles/smtown-strategy.html">그룹이 아니라 회사를 덕질하게 만든 전략, 'SMTOWN'</a>
+                            </h3>
+                            <p class="magazine-card-excerpt">SM이 회사 차원의 팬덤을 구축한 SMTOWN 브랜딩 전략</p>
+                            <div class="magazine-card-meta">
+                                <span class="keyword">브랜드전략</span>
+                                <time class="date">2025.04.22</time>
+                                <span class="read-time">8분 읽기</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="magazine-card" data-category="sm-entertainment" data-keyword="팬몰입분석">
+                        <div class="magazine-card-image">
+                            <img src="assets/images/covers/emotional-vs-analytical.jpg" alt="정서적 몰입 vs 분석적 해석" loading="lazy" onerror="this.src='assets/images/covers/default.jpg'">
+                        </div>
+                        <div class="magazine-card-content">
+                            <div class="magazine-card-category category-sm">SM Entertainment</div>
+                            <h3 class="magazine-card-title">
+                                <a href="articles/emotional-vs-analytical.html">정서적 몰입 vs 분석적 해석, 팬은 어디에 머무는가?</a>
+                            </h3>
+                            <p class="magazine-card-excerpt">아이돌과 마블 팬덤의 몰입 방식 비교 분석</p>
+                            <div class="magazine-card-meta">
+                                <span class="keyword">팬몰입분석</span>
+                                <time class="date">2025.04.17</time>
+                                <span class="read-time">7분 읽기</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="magazine-card" data-category="mcu" data-keyword="큰그림">
+                        <div class="magazine-card-image">
+                            <img src="assets/images/covers/marvel-27billion-harvest.jpg" alt="10년간 심은 떡밥, 27.9억 달러로 회수되다" loading="lazy" onerror="this.src='assets/images/covers/default.jpg'">
+                        </div>
+                        <div class="magazine-card-content">
+                            <div class="magazine-card-category category-mcu">MCU</div>
+                            <h3 class="magazine-card-title">
+                                <a href="articles/marvel-27billion-harvest.html">10년간 심은 떡밥, 27.9억 달러로 회수되다</a>
+                            </h3>
+                            <p class="magazine-card-excerpt">마블이 페이즈별로 떡밥을 던지며 세계관을 구축한 전략과 27.9억 달러라는 성과 분석</p>
+                            <div class="magazine-card-meta">
+                                <span class="keyword">큰그림</span>
+                                <time class="date">2025.04.16</time>
+                                <span class="read-time">8분 읽기</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="magazine-card" data-category="sm-entertainment" data-keyword="세계관">
+                        <div class="magazine-card-image">
+                            <img src="assets/images/covers/exo-universe.jpg" alt="EXO를 해석하라, 세계관이 만든 밀리언셀러" loading="lazy" onerror="this.src='assets/images/covers/default.jpg'">
+                        </div>
+                        <div class="magazine-card-content">
+                            <div class="magazine-card-category category-sm">SM Entertainment</div>
+                            <h3 class="magazine-card-title">
+                                <a href="articles/exo-universe.html">EXO를 해석하라, 세계관이 만든 밀리언셀러</a>
+                            </h3>
+                            <p class="magazine-card-excerpt">브랜드 세계관 구축이 고객 충성도와 매출에 미치는 영향</p>
+                            <div class="magazine-card-meta">
+                                <span class="keyword">세계관</span>
+                                <time class="date">2025.04.14</time>
+                                <span class="read-time">6분 읽기</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="magazine-card" data-category="sm-entertainment" data-keyword="세계관마케팅">
+                        <div class="magazine-card-image">
+                            <img src="assets/images/covers/world-view-ip-25x.jpg" alt="세계관 하나로 2차 IP 매출 2.5배" loading="lazy" onerror="this.src='assets/images/covers/default.jpg'">
+                        </div>
+                        <div class="magazine-card-content">
+                            <div class="magazine-card-category category-sm">SM Entertainment</div>
+                            <h3 class="magazine-card-title">
+                                <a href="articles/world-view-ip-25x.html">세계관 하나로 2차 IP 매출 2.5배</a>
+                            </h3>
+                            <p class="magazine-card-excerpt">아이돌 세계관이 브랜드 자산이 되어 IP 매출을 늘린 전략 분석</p>
+                            <div class="magazine-card-meta">
+                                <span class="keyword">세계관마케팅</span>
+                                <time class="date">2025.04.10</time>
+                                <span class="read-time">6분 읽기</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="magazine-card" data-category="sm-entertainment" data-keyword="큰그림">
+                        <div class="magazine-card-image">
+                            <img src="assets/images/covers/sm-big-picture.jpg" alt="앨범은 덤, SM의 큰 그림 전략" loading="lazy" onerror="this.src='assets/images/covers/default.jpg'">
+                        </div>
+                        <div class="magazine-card-content">
+                            <div class="magazine-card-category category-sm">SM Entertainment</div>
+                            <h3 class="magazine-card-title">
+                                <a href="articles/sm-big-picture.html">앨범은 덤, SM의 '큰 그림 전략'</a>
+                            </h3>
+                            <p class="magazine-card-excerpt">왜 SM은 '큰 그림'을 먼저 그리고, 앨범은 그 위에 덧칠하는가 – 팬덤 비즈니스에서 비주얼 디렉팅 전략의 힘</p>
+                            <div class="magazine-card-meta">
+                                <span class="keyword">큰그림</span>
+                                <time class="date">2025.04.09</time>
+                                <span class="read-time">10분 읽기</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="magazine-card" data-category="sm-entertainment" data-keyword="NCT유닛전략">
+                        <div class="magazine-card-image">
+                            <img src="assets/images/covers/nct-4500-million.jpg" alt="따로 또 같이, 4500만 장을 판 팀 NCT" loading="lazy" onerror="this.src='assets/images/covers/default.jpg'">
+                        </div>
+                        <div class="magazine-card-content">
+                            <div class="magazine-card-category category-sm">SM Entertainment</div>
+                            <h3 class="magazine-card-title">
+                                <a href="articles/nct-4500-million.html">따로 또 같이, 4500만 장을 판 팀 'NCT'</a>
+                            </h3>
+                            <p class="magazine-card-excerpt">NCT의 무한 확장형 그룹 전략과 브랜드형 아이돌 체제 분석</p>
+                            <div class="magazine-card-meta">
+                                <span class="keyword">NCT유닛전략</span>
+                                <time class="date">2025.04.08</time>
+                                <span class="read-time">7분 읽기</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="magazine-card magazine-card--featured" data-category="sm-entertainment" data-keyword="몰입설계">
+                        <div class="magazine-card-image">
+                            <img src="assets/images/covers/fan-waiting.jpg" alt="팬은 기다림도 소비한다" loading="lazy" onerror="this.src='assets/images/covers/default.jpg'">
+                        </div>
+                        <div class="magazine-card-content">
+                            <div class="magazine-card-category category-sm">SM Entertainment</div>
+                            <h3 class="magazine-card-title">
+                                <a href="articles/fan-waiting.html">팬은 기다림도 소비한다</a>
+                            </h3>
+                            <p class="magazine-card-excerpt">SM의 티저 전략을 통해 본 고객 기대감 관리와 마케팅 타이밍의 중요성</p>
+                            <div class="magazine-card-meta">
+                                <span class="keyword">몰입설계</span>
+                                <time class="date">2025.04.01</time>
+                                <span class="read-time">5분 읽기</span>
+                            </div>
+                        </div>
+                    </article>
                 </div>
                 
                 <!-- 필터링 결과가 없을 때 표시 -->

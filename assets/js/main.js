@@ -7,7 +7,11 @@ document.addEventListener('DOMContentLoaded', function() {
     initShareFunctionality();
     initScrollToTop();
     initImageLazyLoading();
+    
+    // Try to load articles dynamically, but also initialize filters for static content
     loadArticlesData();
+    initFilterSystem(); // This will work with both dynamic and static content
+    
     initViewTracking();
     initAnalytics();
 });
@@ -359,15 +363,40 @@ function initKeyboardNavigation() {
 async function loadArticlesData() {
     console.log('Loading articles data...');
     try {
-        const response = await fetch('./data/articles.json');
-        console.log('Fetch response:', response);
+        // Detect GitHub Pages base path
+        const isGitHubPages = window.location.hostname.includes('github.io');
+        const basePath = isGitHubPages ? '/dukjil-website' : '';
         
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+        // Try multiple possible paths for GitHub Pages compatibility
+        const possiblePaths = [
+            './data/articles.json',
+            `${basePath}/data/articles.json`,
+            'data/articles.json'
+        ];
+        
+        let response = null;
+        let lastError = null;
+        
+        for (const path of possiblePaths) {
+            try {
+                console.log(`Trying to fetch from: ${path}`);
+                response = await fetch(path);
+                if (response.ok) {
+                    console.log(`Successfully fetched from: ${path}`);
+                    break;
+                }
+            } catch (err) {
+                lastError = err;
+                console.log(`Failed to fetch from ${path}:`, err);
+            }
+        }
+        
+        if (!response || !response.ok) {
+            throw new Error(`HTTP error! status: ${response?.status || 'No response'}, last error: ${lastError}`);
         }
         
         const data = await response.json();
-        console.log('Articles data loaded:', data);
+        console.log('Articles data loaded successfully:', data);
         
         if (data && data.articles) {
             console.log(`Found ${data.articles.length} articles`);
@@ -379,6 +408,7 @@ async function loadArticlesData() {
         }
     } catch (error) {
         console.error('Failed to load articles data:', error);
+        console.log('Falling back to static content...');
         // Fallback to hardcoded articles if JSON fails
         loadFallbackArticles();
     }
@@ -711,18 +741,26 @@ function formatDate(dateString) {
  * Filter System (Magazine Style)
  */
 function initFilterSystem() {
-    const categoryButtons = document.querySelectorAll('[data-category]');
-    const articles = document.querySelectorAll('.magazine-card');
+    console.log('Initializing filter system...');
+    
+    // Use more flexible selectors to work with both dynamic and static content
+    const categoryButtons = document.querySelectorAll('[data-category], .filter-pill[data-category]');
+    const articles = document.querySelectorAll('.magazine-card, .article-item');
     const noResults = document.querySelector('.no-results');
     const resetButton = document.querySelector('.reset-filters-btn');
     
-    if (!categoryButtons.length || !articles.length) return;
+    console.log(`Found ${categoryButtons.length} category buttons and ${articles.length} articles`);
+    
+    if (!categoryButtons.length) {
+        console.log('No category buttons found, filter system not initialized');
+        return;
+    }
     
     let currentCategory = 'all';
     
     // Handle browser back/forward navigation
     window.addEventListener('popstate', function(event) {
-        // Reset filters when user navigates back
+        console.log('Browser navigation detected, resetting filters');
         resetFilters();
     });
     
@@ -730,23 +768,16 @@ function initFilterSystem() {
     function initializeFiltersFromURL() {
         const urlParams = new URLSearchParams(window.location.search);
         const categoryParam = urlParams.get('category');
-        const keywordParam = urlParams.get('keyword');
         
         if (categoryParam && categoryParam !== 'all') {
             const categoryBtn = document.querySelector(`[data-category="${categoryParam}"]`);
             if (categoryBtn) {
-                categoryButtons.forEach(btn => btn.classList.remove('filter-btn--active'));
-                categoryBtn.classList.add('filter-btn--active');
+                console.log(`Setting initial category filter to: ${categoryParam}`);
+                categoryButtons.forEach(btn => {
+                    btn.classList.remove('filter-btn--active', 'filter-pill--active');
+                });
+                categoryBtn.classList.add('filter-pill--active');
                 currentCategory = categoryParam;
-            }
-        }
-        
-        if (keywordParam && keywordParam !== 'all') {
-            const keywordBtn = document.querySelector(`[data-keyword="${keywordParam}"]`);
-            if (keywordBtn) {
-                keywordButtons.forEach(btn => btn.classList.remove('filter-btn--active'));
-                keywordBtn.classList.add('filter-btn--active');
-                currentKeyword = keywordParam;
             }
         }
         
@@ -758,8 +789,10 @@ function initFilterSystem() {
     
     // Category filter
     categoryButtons.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
             const category = this.getAttribute('data-category');
+            console.log(`Category filter clicked: ${category}`);
             
             // Update active state for magazine pills
             categoryButtons.forEach(btn => {
@@ -775,6 +808,7 @@ function initFilterSystem() {
     
     // Reset filters function
     function resetFilters() {
+        console.log('Resetting all filters');
         currentCategory = 'all';
         
         // Reset button states
@@ -785,7 +819,9 @@ function initFilterSystem() {
         
         // Set "전체" button as active
         const allCategoryBtn = document.querySelector('[data-category="all"]');
-        if (allCategoryBtn) allCategoryBtn.classList.add('filter-pill--active');
+        if (allCategoryBtn) {
+            allCategoryBtn.classList.add('filter-pill--active');
+        }
         
         applyFilters();
     }
@@ -797,19 +833,23 @@ function initFilterSystem() {
     
     function applyFilters() {
         let visibleCount = 0;
+        console.log(`Applying filters: category=${currentCategory}`);
         
         articles.forEach(article => {
             const articleCategory = article.getAttribute('data-category');
-            
             const categoryMatch = currentCategory === 'all' || articleCategory === currentCategory;
             
             if (categoryMatch) {
                 article.classList.remove('hidden');
+                article.style.display = '';
                 visibleCount++;
             } else {
                 article.classList.add('hidden');
+                article.style.display = 'none';
             }
         });
+        
+        console.log(`Filter applied: ${visibleCount} articles visible`);
         
         // Show/hide no results message
         if (noResults) {

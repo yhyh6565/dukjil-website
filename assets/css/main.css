@@ -688,14 +688,17 @@ a:hover {
   transition: opacity var(--transition-base), transform var(--transition-base);
 }
 
-.article-item.hidden {
-  opacity: 0;
-  transform: scale(0.95);
-  pointer-events: none;
-  margin: 0;
-  padding: 0;
-  height: 0;
-  overflow: hidden;
+.article-item.hidden,
+.magazine-card.hidden {
+  display: none !important;
+}
+
+/* Smooth transition for visible items */
+.article-item:not(.hidden),
+.magazine-card:not(.hidden) {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity var(--transition-base), transform var(--transition-base);
 }
 
 /* Footer */
