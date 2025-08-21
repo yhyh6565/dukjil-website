@@ -1,6 +1,8 @@
 // Main JavaScript for Dukjil Business Website
 
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM Content Loaded - Starting initialization');
+    
     // Initialize all components
     initMobileNavigation();
     initSmoothScrolling();
@@ -10,7 +12,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Try to load articles dynamically, but also initialize filters for static content
     loadArticlesData();
-    initFilterSystem(); // This will work with both dynamic and static content
+    
+    // Add small delay to ensure DOM is fully ready
+    setTimeout(() => {
+        initFilterSystem(); // This will work with both dynamic and static content
+    }, 100);
     
     initViewTracking();
     initAnalytics();
@@ -743,9 +749,9 @@ function formatDate(dateString) {
 function initFilterSystem() {
     console.log('Initializing filter system...');
     
-    // Use more flexible selectors to work with both dynamic and static content
-    const categoryButtons = document.querySelectorAll('[data-category], .filter-pill[data-category]');
-    const articles = document.querySelectorAll('.magazine-card, .article-item');
+    // Target the specific filter pills in the filter section
+    const categoryButtons = document.querySelectorAll('.filter-pill[data-category]');
+    const articles = document.querySelectorAll('.magazine-card[data-category]');
     const noResults = document.querySelector('.no-results');
     const resetButton = document.querySelector('.reset-filters-btn');
     
@@ -770,11 +776,11 @@ function initFilterSystem() {
         const categoryParam = urlParams.get('category');
         
         if (categoryParam && categoryParam !== 'all') {
-            const categoryBtn = document.querySelector(`[data-category="${categoryParam}"]`);
+            const categoryBtn = document.querySelector(`.filter-pill[data-category="${categoryParam}"]`);
             if (categoryBtn) {
                 console.log(`Setting initial category filter to: ${categoryParam}`);
                 categoryButtons.forEach(btn => {
-                    btn.classList.remove('filter-btn--active', 'filter-pill--active');
+                    btn.classList.remove('filter-pill--active');
                 });
                 categoryBtn.classList.add('filter-pill--active');
                 currentCategory = categoryParam;
@@ -787,17 +793,16 @@ function initFilterSystem() {
     // Initialize filters from URL
     initializeFiltersFromURL();
     
-    // Category filter
+    // Category filter - Add event listeners to filter pills
     categoryButtons.forEach(button => {
         button.addEventListener('click', function(e) {
             e.preventDefault();
             const category = this.getAttribute('data-category');
             console.log(`Category filter clicked: ${category}`);
             
-            // Update active state for magazine pills
+            // Update active state for filter pills
             categoryButtons.forEach(btn => {
                 btn.classList.remove('filter-pill--active');
-                btn.classList.remove('filter-btn--active');
             });
             this.classList.add('filter-pill--active');
             
@@ -814,11 +819,10 @@ function initFilterSystem() {
         // Reset button states
         categoryButtons.forEach(btn => {
             btn.classList.remove('filter-pill--active');
-            btn.classList.remove('filter-btn--active');
         });
         
         // Set "전체" button as active
-        const allCategoryBtn = document.querySelector('[data-category="all"]');
+        const allCategoryBtn = document.querySelector('.filter-pill[data-category="all"]');
         if (allCategoryBtn) {
             allCategoryBtn.classList.add('filter-pill--active');
         }
