@@ -744,360 +744,96 @@ function formatDate(dateString) {
 }
 
 /**
- * Enhanced Filter System with Tags and URL State Management
+ * Simple Category Filter System
  */
 function initFilterSystem() {
-    console.log('Initializing enhanced filter system...');
-    
-    // Filter state
-    let filterState = {
-        category: 'all',
-        tags: new Set(),
-        searchQuery: ''
-    };
+    console.log('Initializing simple category filter system...');
     
     // Get DOM elements
     const categoryButtons = document.querySelectorAll('.filter-pill[data-category]');
     const articles = document.querySelectorAll('.magazine-card[data-category]');
     const noResults = document.querySelector('.no-results');
-    const tagPillsContainer = document.getElementById('tag-pills');
-    const tagSearch = document.getElementById('tag-search');
-    const clearFiltersBtn = document.getElementById('clear-filters');
     
     console.log(`Found ${categoryButtons.length} category buttons and ${articles.length} articles`);
     
-    if (!categoryButtons.length) {
-        console.log('No category buttons found, filter system not initialized');
+    if (!categoryButtons.length || !articles.length) {
+        console.log('Required elements not found, filter system not initialized');
         return;
     }
     
-    // Extract and process all available tags
-    let allTags = new Set();
-    let articleData = [];
+    let currentCategory = 'all';
     
-    // Process static articles and extract tags
-    articles.forEach(article => {
-        const category = article.getAttribute('data-category');
-        const keyword = article.getAttribute('data-keyword');
-        const title = article.querySelector('.magazine-card-title a')?.textContent || '';
-        
-        // Extract tags from keyword and title (simple approach)
-        const tags = [];
-        if (keyword) tags.push(keyword);
-        
-        // Add common tags based on category
-        switch(category) {
-            case 'sm-entertainment':
-                tags.push('SM', '엔터테인먼트', 'K-POP');
-                break;
-            case 'mcu':
-                tags.push('마블', '영화', '히어로');
-                break;
-            case 'produce101':
-                tags.push('프로듀스', '오디션', '아이돌');
-                break;
-        }
-        
-        // Add tags to global set
-        tags.forEach(tag => allTags.add(tag));
-        
-        articleData.push({
-            element: article,
-            category: category,
-            tags: tags,
-            keyword: keyword,
-            title: title.toLowerCase()
+    // Add click event listeners to category buttons
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const category = this.getAttribute('data-category');
+            console.log(`Category clicked: ${category}`);
+            
+            // Remove active class from all buttons
+            categoryButtons.forEach(btn => {
+                btn.classList.remove('filter-pill--active');
+            });
+            
+            // Add active class to clicked button
+            this.classList.add('filter-pill--active');
+            
+            // Update current category
+            currentCategory = category;
+            
+            // Apply filters
+            applyFilters();
         });
     });
     
-    // Initialize UI components
-    initializeTagPills();
-    initializeCategoryCounts();
-    initializeEventListeners();
-    initializeFromURL();
-    
-    function initializeTagPills() {
-        if (!tagPillsContainer) return;
-        
-        // Sort tags by popularity (frequency)
-        const tagCounts = {};
-        articleData.forEach(article => {
-            article.tags.forEach(tag => {
-                tagCounts[tag] = (tagCounts[tag] || 0) + 1;
-            });
-        });
-        
-        const sortedTags = Array.from(allTags).sort((a, b) => 
-            (tagCounts[b] || 0) - (tagCounts[a] || 0)
-        );
-        
-        // Create tag pills
-        const tagPillsHTML = sortedTags.map(tag => {
-            const count = tagCounts[tag] || 0;
-            return `<button class="filter-pill filter-pill--tag" data-tag="${tag}">
-                ${tag} <span class="pill-count">${count}</span>
-            </button>`;
-        }).join('');
-        
-        tagPillsContainer.innerHTML = tagPillsHTML;
-        
-        // Add event listeners to tag buttons
-        tagPillsContainer.addEventListener('click', function(e) {
-            const tagButton = e.target.closest('[data-tag]');
-            if (!tagButton) return;
-            
-            const tag = tagButton.getAttribute('data-tag');
-            toggleTag(tag, tagButton);
-        });
-    }
-    
-    function initializeCategoryCounts() {
-        // Count articles per category
-        const categoryCounts = {
-            all: articleData.length,
-            'sm-entertainment': 0,
-            'mcu': 0,
-            'produce101': 0
-        };
-        
-        articleData.forEach(article => {
-            if (categoryCounts.hasOwnProperty(article.category)) {
-                categoryCounts[article.category]++;
-            }
-        });
-        
-        // Update count displays
-        document.getElementById('count-all')?.appendChild(
-            document.createTextNode(`(${categoryCounts.all})`)
-        );
-        document.getElementById('count-sm')?.appendChild(
-            document.createTextNode(`(${categoryCounts['sm-entertainment']})`)
-        );
-        document.getElementById('count-mcu')?.appendChild(
-            document.createTextNode(`(${categoryCounts['mcu']})`)
-        );
-        document.getElementById('count-produce')?.appendChild(
-            document.createTextNode(`(${categoryCounts['produce101']})`)
-        );
-    }
-    
-    function initializeEventListeners() {
-        // Category buttons
-        categoryButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                const category = this.getAttribute('data-category');
-                setCategory(category);
-            });
-        });
-        
-        // Tag search
-        if (tagSearch) {
-            tagSearch.addEventListener('input', function(e) {
-                filterState.searchQuery = e.target.value.toLowerCase();
-                filterTagPills();
-                applyFilters();
-                updateURL();
-            });
-        }
-        
-        // Clear filters
-        if (clearFiltersBtn) {
-            clearFiltersBtn.addEventListener('click', resetAllFilters);
-        }
-        
-        // Browser navigation
-        window.addEventListener('popstate', function(event) {
-            if (event.state) {
-                filterState = { ...event.state };
-                updateUIFromState();
-                applyFilters();
-            }
-        });
-    }
-    
-    function initializeFromURL() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const categoryParam = urlParams.get('category');
-        const tagsParam = urlParams.get('tags');
-        const searchParam = urlParams.get('search');
-        
-        if (categoryParam && categoryParam !== 'all') {
-            filterState.category = categoryParam;
-        }
-        
-        if (tagsParam) {
-            filterState.tags = new Set(tagsParam.split(',').filter(tag => tag.length > 0));
-        }
-        
-        if (searchParam) {
-            filterState.searchQuery = searchParam;
-            if (tagSearch) tagSearch.value = searchParam;
-        }
-        
-        updateUIFromState();
-        applyFilters();
-    }
-    
-    function setCategory(category) {
-        filterState.category = category;
-        
-        // Update category button states
-        categoryButtons.forEach(btn => {
-            btn.classList.remove('filter-pill--active');
-        });
-        
-        const activeBtn = document.querySelector(`.filter-pill[data-category="${category}"]`);
-        if (activeBtn) {
-            activeBtn.classList.add('filter-pill--active');
-        }
-        
-        applyFilters();
-        updateURL();
-    }
-    
-    function toggleTag(tag, buttonElement) {
-        if (filterState.tags.has(tag)) {
-            filterState.tags.delete(tag);
-            buttonElement.classList.remove('filter-pill--active');
-        } else {
-            filterState.tags.add(tag);
-            buttonElement.classList.add('filter-pill--active');
-        }
-        
-        applyFilters();
-        updateURL();
-    }
-    
-    function filterTagPills() {
-        if (!tagPillsContainer || !filterState.searchQuery) {
-            // Show all tag pills
-            const tagButtons = tagPillsContainer.querySelectorAll('.filter-pill--tag');
-            tagButtons.forEach(btn => btn.style.display = '');
-            return;
-        }
-        
-        const query = filterState.searchQuery.toLowerCase();
-        const tagButtons = tagPillsContainer.querySelectorAll('.filter-pill--tag');
-        
-        tagButtons.forEach(btn => {
-            const tag = btn.getAttribute('data-tag').toLowerCase();
-            btn.style.display = tag.includes(query) ? '' : 'none';
-        });
-    }
-    
     function applyFilters() {
         let visibleCount = 0;
+        console.log(`Applying filter for category: ${currentCategory}`);
         
-        articleData.forEach(article => {
-            const categoryMatch = filterState.category === 'all' || 
-                                article.category === filterState.category;
+        articles.forEach(article => {
+            const articleCategory = article.getAttribute('data-category');
             
-            const tagMatch = filterState.tags.size === 0 || 
-                           [...filterState.tags].some(tag => article.tags.includes(tag));
-            
-            const searchMatch = !filterState.searchQuery || 
-                              article.title.includes(filterState.searchQuery.toLowerCase()) ||
-                              article.tags.some(tag => 
-                                  tag.toLowerCase().includes(filterState.searchQuery.toLowerCase())
-                              );
-            
-            if (categoryMatch && tagMatch && searchMatch) {
-                article.element.classList.remove('hidden');
-                article.element.style.display = '';
+            // Show article if category matches or if "all" is selected
+            if (currentCategory === 'all' || articleCategory === currentCategory) {
+                article.style.display = 'block';
+                article.classList.remove('hidden');
                 visibleCount++;
             } else {
-                article.element.classList.add('hidden');
-                article.element.style.display = 'none';
+                article.style.display = 'none';
+                article.classList.add('hidden');
             }
         });
         
         console.log(`Filter applied: ${visibleCount} articles visible`);
         
+        // Update title
+        const titleElement = document.querySelector('.filter-title');
+        if (titleElement) {
+            if (currentCategory === 'all') {
+                titleElement.textContent = `모든 글 (${visibleCount}개)`;
+            } else {
+                const categoryName = getCategoryDisplayName(currentCategory);
+                titleElement.textContent = `${categoryName} (${visibleCount}개)`;
+            }
+        }
+        
         // Show/hide no results message
         if (noResults) {
             noResults.style.display = visibleCount === 0 ? 'block' : 'none';
         }
-        
-        // Update page title
-        updatePageTitle(visibleCount);
-        
-        // Analytics
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'filter_applied', {
-                event_category: 'Enhanced Filter',
-                event_label: `category:${filterState.category}, tags:${[...filterState.tags].join(',')}`,
-                value: visibleCount
-            });
+    }
+    
+    function getCategoryDisplayName(categorySlug) {
+        switch(categorySlug) {
+            case 'sm-entertainment': return 'SM Entertainment';
+            case 'mcu': return 'MCU';
+            case 'produce101': return '프로듀스 101';
+            default: return '전체';
         }
     }
     
-    function updatePageTitle(count) {
-        const titleElement = document.querySelector('.filter-title');
-        if (!titleElement) return;
-        
-        if (filterState.category !== 'all' || filterState.tags.size > 0 || filterState.searchQuery) {
-            titleElement.textContent = `필터링된 글 (${count}개)`;
-        } else {
-            titleElement.textContent = `모든 글 (${count}개)`;
-        }
-    }
-    
-    function updateUIFromState() {
-        // Update category buttons
-        categoryButtons.forEach(btn => {
-            btn.classList.toggle('filter-pill--active', 
-                btn.getAttribute('data-category') === filterState.category);
-        });
-        
-        // Update tag buttons
-        const tagButtons = document.querySelectorAll('.filter-pill--tag');
-        tagButtons.forEach(btn => {
-            const tag = btn.getAttribute('data-tag');
-            btn.classList.toggle('filter-pill--active', filterState.tags.has(tag));
-        });
-        
-        // Update search input
-        if (tagSearch) {
-            tagSearch.value = filterState.searchQuery;
-        }
-    }
-    
-    function updateURL() {
-        const params = new URLSearchParams();
-        
-        if (filterState.category !== 'all') {
-            params.set('category', filterState.category);
-        }
-        
-        if (filterState.tags.size > 0) {
-            params.set('tags', [...filterState.tags].join(','));
-        }
-        
-        if (filterState.searchQuery) {
-            params.set('search', filterState.searchQuery);
-        }
-        
-        const newURL = params.toString() ? 
-            `${window.location.pathname}?${params.toString()}` : 
-            window.location.pathname;
-        
-        // Update URL without page reload
-        history.replaceState(filterState, '', newURL);
-    }
-    
-    function resetAllFilters() {
-        filterState = {
-            category: 'all',
-            tags: new Set(),
-            searchQuery: ''
-        };
-        
-        updateUIFromState();
-        filterTagPills();
-        applyFilters();
-        updateURL();
-    }
+    // Initialize with all articles visible
+    applyFilters();
 }
 
 /**
