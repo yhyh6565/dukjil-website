@@ -10,13 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollToTop();
     initImageLazyLoading();
     
-    // Try to load articles dynamically, but also initialize filters for static content
-    loadArticlesData();
-    
-    // Add small delay to ensure DOM is fully ready
-    setTimeout(() => {
-        initFilterSystem(); // This will work with both dynamic and static content
-    }, 100);
+    // Initialize filter system immediately for static content
+    initFilterSystem();
     
     initViewTracking();
     initAnalytics();
@@ -764,7 +759,9 @@ function initFilterSystem() {
     let currentCategory = 'all';
     
     // Add click event listeners to category buttons
-    categoryButtons.forEach(button => {
+    categoryButtons.forEach((button, index) => {
+        console.log(`Setting up listener for button ${index}: ${button.textContent} (${button.getAttribute('data-category')})`);
+        
         button.addEventListener('click', function(e) {
             e.preventDefault();
             const category = this.getAttribute('data-category');
@@ -777,6 +774,7 @@ function initFilterSystem() {
             
             // Add active class to clicked button
             this.classList.add('filter-pill--active');
+            console.log(`Active class added to: ${this.textContent}`);
             
             // Update current category
             currentCategory = category;
