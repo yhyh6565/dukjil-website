@@ -865,6 +865,8 @@ a:hover {
   font-weight: var(--font-weight-medium);
   cursor: pointer;
   transition: all var(--transition-fast);
+  outline: none;
+  user-select: none;
 }
 
 .filter-pill:hover {

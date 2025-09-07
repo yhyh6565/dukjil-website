@@ -742,17 +742,24 @@ function formatDate(dateString) {
  * Simple Category Filter System
  */
 function initFilterSystem() {
-    console.log('Initializing simple category filter system...');
+    console.log('🔧 Initializing simple category filter system...');
     
     // Get DOM elements
     const categoryButtons = document.querySelectorAll('.filter-pill[data-category]');
     const articles = document.querySelectorAll('.magazine-card[data-category]');
     const noResults = document.querySelector('.no-results');
     
-    console.log(`Found ${categoryButtons.length} category buttons and ${articles.length} articles`);
+    console.log(`📊 Found ${categoryButtons.length} category buttons and ${articles.length} articles`);
+    
+    // Debug: Show which buttons were found
+    categoryButtons.forEach((btn, index) => {
+        console.log(`🔘 Button ${index + 1}: "${btn.textContent.trim()}" (data-category="${btn.getAttribute('data-category')}")`);
+    });
     
     if (!categoryButtons.length || !articles.length) {
-        console.log('Required elements not found, filter system not initialized');
+        console.error('❌ Required elements not found, filter system not initialized');
+        console.log('Buttons found:', categoryButtons.length);
+        console.log('Articles found:', articles.length);
         return;
     }
     
@@ -760,59 +767,84 @@ function initFilterSystem() {
     
     // Add click event listeners to category buttons
     categoryButtons.forEach((button, index) => {
-        console.log(`Setting up listener for button ${index}: ${button.textContent} (${button.getAttribute('data-category')})`);
+        console.log(`⚙️ Setting up listener for button ${index + 1}: "${button.textContent.trim()}" (${button.getAttribute('data-category')})`);
         
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            const category = this.getAttribute('data-category');
-            console.log(`Category clicked: ${category}`);
-            
-            // Remove active class from all buttons
-            categoryButtons.forEach(btn => {
-                btn.classList.remove('filter-pill--active');
-            });
-            
-            // Add active class to clicked button
-            this.classList.add('filter-pill--active');
-            console.log(`Active class added to: ${this.textContent}`);
-            
-            // Update current category
-            currentCategory = category;
-            
-            // Apply filters
-            applyFilters();
+        // Test if button is actually clickable
+        button.style.pointerEvents = 'auto';
+        
+        // Add multiple event types for better compatibility
+        ['click', 'touchend'].forEach(eventType => {
+            button.addEventListener(eventType, function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const category = this.getAttribute('data-category');
+                console.log(`🎯 ${eventType.toUpperCase()} detected on category: ${category}`);
+                console.log(`🔄 Button text: "${this.textContent.trim()}"`);
+                
+                // Remove active class from all buttons
+                categoryButtons.forEach(btn => {
+                    btn.classList.remove('filter-pill--active');
+                    console.log(`🔘 Removed active from: ${btn.textContent.trim()}`);
+                });
+                
+                // Add active class to clicked button
+                this.classList.add('filter-pill--active');
+                console.log(`✅ Active class added to: "${this.textContent.trim()}"`);
+                
+                // Update current category
+                currentCategory = category;
+                
+                // Apply filters
+                applyFilters();
+            }, { passive: false });
+        });
+        
+        // Add visual feedback on hover for debugging
+        button.addEventListener('mouseenter', function() {
+            console.log(`🖱️ Mouse entered: ${this.textContent.trim()}`);
+            this.style.transform = 'scale(1.05)';
+        });
+        
+        button.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
         });
     });
     
     function applyFilters() {
         let visibleCount = 0;
-        console.log(`Applying filter for category: ${currentCategory}`);
+        console.log(`🔍 Applying filter for category: "${currentCategory}"`);
         
-        articles.forEach(article => {
+        articles.forEach((article, index) => {
             const articleCategory = article.getAttribute('data-category');
+            const articleTitle = article.querySelector('.magazine-card-title a')?.textContent?.trim() || 'No title';
             
             // Show article if category matches or if "all" is selected
             if (currentCategory === 'all' || articleCategory === currentCategory) {
                 article.style.display = 'block';
                 article.classList.remove('hidden');
                 visibleCount++;
+                console.log(`📄 Showing: "${articleTitle}" (category: ${articleCategory})`);
             } else {
                 article.style.display = 'none';
                 article.classList.add('hidden');
+                console.log(`🚫 Hiding: "${articleTitle}" (category: ${articleCategory})`);
             }
         });
         
-        console.log(`Filter applied: ${visibleCount} articles visible`);
+        console.log(`✨ Filter applied: ${visibleCount} articles visible out of ${articles.length} total`);
         
         // Update title
         const titleElement = document.querySelector('.filter-title');
         if (titleElement) {
+            const oldTitle = titleElement.textContent;
             if (currentCategory === 'all') {
                 titleElement.textContent = `모든 글 (${visibleCount}개)`;
             } else {
                 const categoryName = getCategoryDisplayName(currentCategory);
                 titleElement.textContent = `${categoryName} (${visibleCount}개)`;
             }
+            console.log(`🏷️ Title updated: "${oldTitle}" → "${titleElement.textContent}"`);
         }
         
         // Show/hide no results message
@@ -831,7 +863,26 @@ function initFilterSystem() {
     }
     
     // Initialize with all articles visible
+    console.log('🚀 Initial filter application...');
     applyFilters();
+    
+    // Test button functionality after 1 second
+    setTimeout(() => {
+        console.log('🧪 Testing button functionality...');
+        categoryButtons.forEach((btn, index) => {
+            const rect = btn.getBoundingClientRect();
+            const isVisible = rect.width > 0 && rect.height > 0;
+            const computedStyle = window.getComputedStyle(btn);
+            
+            console.log(`🔘 Button ${index + 1}: "${btn.textContent.trim()}"`);
+            console.log(`   - Visible: ${isVisible}`);
+            console.log(`   - Pointer Events: ${computedStyle.pointerEvents}`);
+            console.log(`   - Cursor: ${computedStyle.cursor}`);
+            console.log(`   - Position: top=${rect.top}, left=${rect.left}`);
+        });
+    }, 1000);
+    
+    console.log('✅ Filter system initialization complete!');
 }
 
 /**
